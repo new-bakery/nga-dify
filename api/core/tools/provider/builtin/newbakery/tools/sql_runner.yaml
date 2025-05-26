@@ -1,0 +1,45 @@
+description:
+  human:
+    en_US: SQL Runner
+    zh_Hans: 运行SQL
+  llm: SQL Runner 运行SQL
+identity:
+  author: F4
+  label:
+    en_US: SQL Runner
+    zh_Hans: 运行SQL
+  name: sql_runner
+parameters:
+- name: sql_connection_string
+  type: string
+  required: true
+  label:
+    en_US: SQL Connection String
+    zh_Hans: SQL数据库连接字符串
+  human_description:
+    en_US: SQL Connection String
+    zh_Hans: SQL数据库连接字符串
+  llm_description: SQL Connection String (SQL数据库连接字符串)
+  form: llm
+- name: sql
+  type: string
+  required: true
+  label:
+    en_US: SQL
+    zh_Hans: SQL
+  human_description:
+    en_US: SQL
+    zh_Hans: SQL
+  llm_description: SQL
+  form: llm
+- name: max_rows
+  type: number
+  required: true
+  label:
+    en_US: Max Rows
+    zh_Hans: 最大行数
+  human_description:
+    en_US: Max Rows
+    zh_Hans: 最大行数
+  llm_description: Max Rows (最大行数)
+  form: llm

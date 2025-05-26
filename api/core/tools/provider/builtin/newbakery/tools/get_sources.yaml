@@ -1,0 +1,23 @@
+description:
+  human:
+    en_US: Get Sources Information
+    zh_Hans: 获取源信息
+  llm: Get Sources Information 获取源信息
+identity:
+  author: F4
+  label:
+    en_US: Get Sources Information
+    zh_Hans: 获取源信息
+  name: get_sources
+parameters:
+- name: source_doc_ids
+  type: string
+  required: true
+  label:
+    en_US: Source Doc Ids, delimited by comma
+    zh_Hans: 源名文档ID, 用逗号分隔
+  human_description:
+    en_US: Source Doc IDs
+    zh_Hans: 源名文档IDs
+  llm_description: Source Doc IDs (源名文档IDs)
+  form: llm

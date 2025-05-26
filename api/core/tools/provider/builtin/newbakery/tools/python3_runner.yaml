@@ -1,0 +1,46 @@
+description:
+  human:
+    en_US: Python3 Code Runner
+    zh_Hans: 运行Python3代码
+  llm: Python3 Code Runner 运行Python3代码
+identity:
+  author: F4
+  label:
+    en_US: Python3 Code Runner
+    zh_Hans: 运行Python3代码
+  name: python3_runner
+parameters:
+- name: data
+  type: string
+  required: true
+  label:
+    en_US: Data
+    zh_Hans: Data
+  human_description:
+    en_US: The dumped json string for the input of main function
+    zh_Hans: main函数的输入的json字符串
+  llm_description: The dumped json string for the input of main function
+  form: llm
+- name: code
+  type: string
+  required: true
+  label:
+    en_US: Code
+    zh_Hans: Code
+  human_description:
+    en_US: The code for the main function. Required be def main(data) ...
+    zh_Hans: main函数的代码，必须是def main(data) ...
+  llm_description: The code for the main function. Required be def main(data) ...
+  form: llm
+- name: result_type
+  type: string
+  required: true
+  label:
+    en_US: Result Type
+    zh_Hans: Result Type
+  human_description:
+    en_US: Result Type, it can be 'dataframe', 'json' or 'str'
+    zh_Hans: 结果类型，可以是'dataframe', 'json' 或 'str'
+  llm_description: Result Type, it can be 'dataframe', 'json' or 'str'
+  form: llm
+

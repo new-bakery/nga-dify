@@ -1,0 +1,34 @@
+description:
+  human:
+    en_US: Get SOP Information
+    zh_Hans: 获取SOP信息
+  llm: Get SOP Information 获取SOP信息
+identity:
+  author: F4
+  label:
+    en_US: Get SOP Information
+    zh_Hans: 获取SOP信息
+  name: get_sops
+parameters:
+- name: user_query
+  type: string
+  required: true
+  label:
+    en_US: User Query
+    zh_Hans: Query
+  human_description:
+    en_US: User Query
+    zh_Hans: 用户请求
+  llm_description: User Query (用户请求)
+  form: llm
+- name: similarity_threshold
+  type: number
+  required: true
+  label:
+    en_US: Similarity Threshold
+    zh_Hans: 相似度阈值
+  human_description:
+    en_US: Similarity Threshold
+    zh_Hans: 相似度阈值
+  llm_description: Similarity Threshold (相似度阈值)
+  form: llm

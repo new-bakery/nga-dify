@@ -1,0 +1,68 @@
+description:
+  human:
+    en_US: Redis Cache
+    zh_Hans: Redis缓存
+  llm: Redis Cache Redis缓存
+identity:
+  author: F4
+  label:
+    en_US: Redis Cache
+    zh_Hans: Redis缓存
+  name: redis_cache
+parameters:
+- name: dify_workflow_runid
+  type: string
+  required: true
+  label:
+    en_US: Dify Workflow Runid
+    zh_Hans: Dify工作流运行ID
+  human_description:
+    en_US: Dify Workflow Runid
+    zh_Hans: Dify工作流运行ID
+  llm_description: Dify Workflow Runid (Dify工作流运行ID)
+  form: llm
+- name: key
+  type: string
+  required: true
+  label:
+    en_US: Key
+    zh_Hans: 键
+  human_description:
+    en_US: Key
+    zh_Hans: 键
+  llm_description: Key 键
+  form: llm
+- name: value
+  type: string
+  required: true
+  label:
+    en_US: Value
+    zh_Hans: 值
+  human_description:
+    en_US: Value
+    zh_Hans: 值
+  llm_description: Value 值
+  form: llm
+- name: action
+  type: string
+  required: true
+  label:
+    en_US: Action
+    zh_Hans: 动作
+  human_description:
+    en_US: Action
+    zh_Hans: 动作
+  llm_description: Action 动作
+  form: llm
+- name: expire
+  type: number
+  required: true
+  default: 300
+  label:
+    en_US: Expire(Seconds)
+    zh_Hans: 过期时间(秒)
+  human_description:
+    en_US: Expire(Seconds)
+    zh_Hans: 过期时间(秒)
+  llm_description: Expire(Seconds) 过期时间(秒)
+  form: llm

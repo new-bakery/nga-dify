@@ -1,0 +1,26 @@
+/dependencies/code/newbakery
+certifi==2024.12.14 
+# geopandas==1.0.1 
+# joblib==1.4.2 
+# lightgbm==4.5.0 
+networkx==3.4.2 
+numpy==2.2.2 
+# # nvidia-nccl-cu12==2.24.3 
+packaging==24.2 
+pandas==2.2.3 
+patsy==1.0.1 
+plotly==5.24.1 
+# pyogrio==0.10.0 
+# pyproj==3.7.0 
+python-dateutil==2.9.0.post0 
+pytz==2024.2 
+scikit-learn==1.6.1 
+scipy==1.15.1 
+# shapely==2.0.6 
+six==1.17.0 
+statsmodels==0.14.4 
+tenacity==9.0.0 
+threadpoolctl==3.5.0 
+tzdata==2024.2 
+# xgboost==2.1.3
+

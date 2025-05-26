@@ -1,0 +1,34 @@
+description:
+  human:
+    en_US: Get Conversation History
+    zh_Hans: 取得会话历史记录
+  llm: Get Conversation History 取得会话历史记录
+identity:
+  author: F4
+  label:
+    en_US: Get Conversation History
+    zh_Hans: 取得会话历史记录
+  name: get_conversation
+parameters:
+- name: similarity_threshold
+  type: number
+  required: true
+  label:
+    en_US: Similarity Threshold
+    zh_Hans: 相似度阈值
+  human_description:
+    en_US: Similarity Threshold
+    zh_Hans: 相似度阈值
+  llm_description: Similarity Threshold (相似度阈值)
+  form: llm
+- name: conversation_id
+  type: string
+  required: true
+  label:
+    en_US: Conversation Id
+    zh_Hans: 对话ID
+  human_description:
+    en_US: Conversation Id
+    zh_Hans: 对话ID
+  llm_description: Conversation Id (对话ID)
+  form: llm

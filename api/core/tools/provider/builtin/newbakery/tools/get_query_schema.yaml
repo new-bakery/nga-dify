@@ -1,0 +1,56 @@
+description:
+  human:
+    en_US: Get Query Schema
+    zh_Hans: 基于查询获取数据库结构
+  llm: Get Query Schema 基于查询获取数据库结构
+identity:
+  author: F4
+  label:
+    en_US: Get Query Schema
+    zh_Hans: 基于查询获取数据库结构
+  name: get_query_schema
+parameters:
+- name: source_doc_id
+  type: string
+  required: true
+  label:
+    en_US: Source Doc Id
+    zh_Hans: 源名文档ID
+  human_description:
+    en_US: Source Doc ID
+    zh_Hans: 源名文档ID
+  llm_description: Source Doc ID (源名文档ID)
+  form: llm
+- name: user_query
+  type: string
+  required: true
+  label:
+    en_US: User Query
+    zh_Hans: Query
+  human_description:
+    en_US: User Query
+    zh_Hans: 用户请求
+  llm_description: User Query (用户请求)
+  form: llm
+- name: schema_tokens_threshold
+  type: number
+  required: true
+  label:
+    en_US: Schema Tokens Threshold
+    zh_Hans: 数据库结构Tokens阈值
+  human_description:
+    en_US: Schema Tokens Threshold
+    zh_Hans: 数据库结构Tokens阈值
+  llm_description: Schema Tokens Threshold (数据库结构Tokens阈值)
+  form: llm
+- name: similarity_threshold
+  type: number
+  required: true
+  label:
+    en_US: Similarity Threshold
+    zh_Hans: 相似度阈值
+  human_description:
+    en_US: Similarity Threshold
+    zh_Hans: 相似度阈值
+  llm_description: Similarity Threshold (相似度阈值)
+  form: llm

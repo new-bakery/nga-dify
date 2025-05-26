@@ -1,0 +1,27 @@
+# 包含所有 .txt 文件
+# include *.txt
+
+# 包含 README.md 文件
+include README.md
+
+# 包含 .env 配置文件
+include my_package/.env
+
+# 包含所有 .json 文件，位于 my_package/data/ 目录下
+# recursive-include my_package/data *.json
+
+# 排除所有 .pyc 文件
+exclude *.pyc
+
+# 排除 test 目录下的所有文件
+prune test/
+
+# 递归排除 docs 目录下的所有 .md 文件
+recursive-exclude docs *.md
+
+# 包含 LICENSE 文件
+include LICENSE
+
+# 将所有 .py 文件打包，但排除在特定目录下
+graft nga
+

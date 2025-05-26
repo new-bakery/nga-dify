@@ -1,0 +1,23 @@
+description:
+  human:
+    en_US: Text Embedding
+    zh_Hans: 文本嵌入
+  llm: Text Embedding 文本嵌入
+identity:
+  author: F4
+  label:
+    en_US: Text Embedding
+    zh_Hans: 文本嵌入
+  name: text_embedding
+parameters:
+- name: text
+  type: string
+  required: true
+  label:
+    en_US: Text
+    zh_Hans: 文本
+  human_description:
+    en_US: Text
+    zh_Hans: 文本
+  llm_description: 文本
+  form: llm

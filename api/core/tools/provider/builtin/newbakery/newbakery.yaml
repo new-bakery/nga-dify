@@ -1,0 +1,129 @@
+identity:
+  author: F4
+  name: newbakery
+  label:
+    en_US: New Bakery
+    zh_Hans: 新面包
+    pt_BR: New Bakery
+  description:
+    en_US: New Bakery Tools
+    zh_Hans: 新面包工具集
+    pt_BR: New Bakery Tools
+  icon: icon.svg
+  tags:
+credentials_for_provider:
+  dify_account_user_email:
+    type: text-input
+    required: true
+    label:
+      en_US: Dify Account User Email
+      zh_Hans: Dify 账户用户邮箱
+  dify_account_user_password:
+    type: secret-input
+    required: true
+    label:
+      en_US: Dify Account User Password
+      zh_Hans: Dify 账户用户密码
+  redis_connection_string:
+    type: text-input
+    required: true
+    label:
+      en_US: Redis Connection String
+      zh_Hans: Redis 连接字符串
+  redis_schema_index_name:
+    type: text-input
+    required: true
+    label:
+      en_US: Redis Schema Index Name
+      zh_Hans: Redis Schema 索引名称
+  redis_conversation_index_name:
+    type: text-input
+    required: true
+    label:
+      en_US: Redis Conversation Index Name
+      zh_Hans: Redis Schema 索引名称
+  redis_sop_index_name:
+    type: text-input
+    required: true
+    label:
+      en_US: Redis SOP Index Name
+      zh_Hans: Redis SOP 索引名称
+  pondsql_connection_string:
+    type: text-input
+    required: true
+    label:
+      en_US: PondSQL Connection String
+      zh_Hans: PondSQL 连接字符串
+  mongodb_connection_string:
+    type: text-input
+    required: true
+    label:
+      en_US: Mongodb Connection String
+      zh_Hans: Mongodb 连接字符串
+  mongodb_database_name:
+    type: text-input
+    required: true
+    label:
+      en_US: Mongodb Database Name
+      zh_Hans: Mongodb 数据库名称
+  schema_collection_name:
+    type: text-input
+    required: true
+    label:
+      en_US: Schema Collection Name
+      zh_Hans: Schema 集合名称
+  conversation_collection_name:
+    type: text-input
+    required: true
+    label:
+      en_US: Conversation Collection Name
+      zh_Hans: Conversation 集合名称
+  sop_collection_name:
+    type: text-input
+    required: true
+    label:
+      en_US: SOP Collection Name
+      zh_Hans: SOP 集合名称
+  s3_endpoint:
+    type: text-input
+    required: true
+    label:
+      en_US: S3 Endpoint
+      zh_Hans: S3 端点
+  s3_access_key:
+    type: secret-input
+    required: true
+    label:
+      en_US: S3 Access Key
+      zh_Hans: S3 访问密钥
+  s3_secret_key:
+    type: secret-input
+    required: true
+    label:
+      en_US: S3 Secret Key
+      zh_Hans: S3 秘钥
+  s3_bucket_name:
+    type: text-input
+    required: true
+    label:
+      en_US: S3 Bucket Name
+      zh_Hans: S3 存储桶名称
+  s3_use_ssl:
+    type: text-input
+    required: true
+    label:
+      en_US: S3 Use SSL
+      zh_Hans: S3 使用SSL
+  s3_region_name:
+    type: text-input
+    required: true
+    label:
+      en_US: S3 Region Name
+      zh_Hans: S3 区域名称
+  s3_verify:
+    type: text-input
+    required: true
+    label:
+      en_US: S3 Verify
+      zh_Hans: S3 验证
+
