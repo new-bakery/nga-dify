@@ -1,0 +1,1076 @@
+app:
+  description: ''
+  icon: 53f7ff5e-4e4e-443e-9482-890ddee78fcf
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: Luna2
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables:
+  - description: ''
+    id: ee42731f-fba8-4ddb-b4d3-c8149f749829
+    name: similarity_threshold
+    selector:
+    - env
+    - similarity_threshold
+    value: 0.3
+    value_type: number
+  - description: ''
+    id: 5acc0ddc-dc2a-484c-a09b-95ce1d46a020
+    name: llm_context_size
+    selector:
+    - env
+    - llm_context_size
+    value: 128
+    value_type: number
+  - description: ''
+    id: c88bbde5-9021-478b-b58b-d2cd76fab471
+    name: max_tasks
+    selector:
+    - env
+    - max_tasks
+    value: 5
+    value_type: number
+  - description: ''
+    id: b0044126-d0a9-4155-91b8-686987ec5340
+    name: dummy
+    selector:
+    - env
+    - dummy
+    value: ' '
+    value_type: string
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1737825792431-source-1737825918193-target
+      source: '1737825792431'
+      sourceHandle: source
+      target: '1737825918193'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1737973115187-source-1737973125252-target
+      source: '1737973115187'
+      sourceHandle: source
+      target: '1737973125252'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1737973107943-source-1737973125252-target
+      source: '1737973107943'
+      sourceHandle: source
+      target: '1737973125252'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1737825918193-source-1737983221066-target
+      source: '1737825918193'
+      sourceHandle: source
+      target: '1737983221066'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1737825918193-source-17379850613650-target
+      source: '1737825918193'
+      sourceHandle: source
+      target: '17379850613650'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1737983221066-source-1737986727253-target
+      source: '1737983221066'
+      sourceHandle: source
+      target: '1737986727253'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 17379850613650-source-1737986727253-target
+      source: '17379850613650'
+      sourceHandle: source
+      target: '1737986727253'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: template-transform
+      id: 1737986727253-source-1737973115187-target
+      source: '1737986727253'
+      sourceHandle: source
+      target: '1737973115187'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: template-transform
+      id: 1737986727253-source-1737973107943-target
+      source: '1737986727253'
+      sourceHandle: source
+      target: '1737973107943'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: tool
+      id: 1737732680774-source-1738572567433-target
+      source: '1737732680774'
+      sourceHandle: source
+      target: '1738572567433'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1738572614729-source-1737825792431-target
+      selected: false
+      source: '1738572614729'
+      sourceHandle: source
+      target: '1737825792431'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1737973125252-source-1737825973829-target
+      source: '1737973125252'
+      sourceHandle: source
+      target: '1737825973829'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: if-else
+      id: 1737732680774-source-1740477287498-target
+      source: '1737732680774'
+      sourceHandle: source
+      target: '1740477287498'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1740477287498-true-1740477334381-target
+      source: '1740477287498'
+      sourceHandle: 'true'
+      target: '1740477334381'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1740477334381-source-1740477415449-target
+      source: '1740477334381'
+      sourceHandle: source
+      target: '1740477415449'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1740477415449-source-1740488960526-target
+      source: '1740477415449'
+      sourceHandle: source
+      target: '1740488960526'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1740477287498-false-1740488968978-target
+      source: '1740477287498'
+      sourceHandle: 'false'
+      target: '1740488968978'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1740488968978-source-1740488960526-target
+      source: '1740488968978'
+      sourceHandle: source
+      target: '1740488960526'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: variable-aggregator
+      id: 1740488960526-source-1737986727253-target
+      source: '1740488960526'
+      sourceHandle: source
+      target: '1737986727253'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1737825973829-source-1737987351106-target
+      source: '1737825973829'
+      sourceHandle: source
+      target: '1737987351106'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: tool
+      id: 1738572567433-source-1738572614729-target
+      source: '1738572567433'
+      sourceHandle: source
+      target: '1738572614729'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1737825918193-source-1740886425888-target
+      source: '1737825918193'
+      sourceHandle: source
+      target: '1740886425888'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1737825918193-source-1740886428130-target
+      source: '1737825918193'
+      sourceHandle: source
+      target: '1740886428130'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1740886425888-source-1737986727253-target
+      source: '1740886425888'
+      sourceHandle: source
+      target: '1737986727253'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1740886428130-source-1737986727253-target
+      source: '1740886428130'
+      sourceHandle: source
+      target: '1737986727253'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: '#Start'
+        type: start
+        variables:
+        - label: conversation_id
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: conversation_id
+        - label: current_request
+          max_length: 50000
+          options: []
+          required: true
+          type: paragraph
+          variable: current_request
+        - label: source_doc_ids
+          max_length: 4096
+          options: []
+          required: true
+          type: paragraph
+          variable: source_doc_ids
+        - label: use_sop
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: use_sop
+      height: 167
+      id: '1737732680774'
+      position:
+        x: 30
+        y: 284
+      positionAbsolute:
+        x: 30
+        y: 284
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(conversation: list[dict], sources: dict) -> dict:\n    if\
+          \ not conversation:\n        conversation = [{\n            \"markdown_history\"\
+          \ : \"\",\n            \"conversation\" : {},\n        }]\n    if not sources:\n\
+          \        raise Exception(\"invalid sources\")\n    return {\n        \"\
+          markdown_history\": conversation[0]['markdown_history'],\n        \"conversation\"\
+          : conversation[0]['conversation'],\n        \"sources\": sources[0]\n  \
+          \  }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          conversation:
+            children: null
+            type: object
+          markdown_history:
+            children: null
+            type: string
+          sources:
+            children: null
+            type: object
+        selected: false
+        title: Get Conversation / Sources
+        type: code
+        variables:
+        - value_selector:
+          - '1738572567433'
+          - json
+          variable: conversation
+        - value_selector:
+          - '1738572614729'
+          - json
+          variable: sources
+      height: 53
+      id: '1737825792431'
+      position:
+        x: 942
+        y: 284
+      positionAbsolute:
+        x: 942
+        y: 284
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1737825792431'
+          - markdown_history
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen-plus-latest
+          provider: tongyi
+        prompt_template:
+        - id: 2b1311f9-457f-49ec-8738-89f265c85dab
+          role: system
+          text: "\nChat history: {{#1737825792431.markdown_history#}}\nUser current\
+            \ request : {{#1737732680774.current_request#}}\nBased on the above chat\
+            \ history between user and assistant as well as the user's current request,\
+            \ write a goal in terms of user's current request in one single sentence.\
+            \ \nGoal:"
+        selected: false
+        title: '#Goal_Generator'
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1737825918193'
+      position:
+        x: 1246
+        y: 284
+      positionAbsolute:
+        x: 1246
+        y: 284
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(text: str) -> dict:\n    tasks = json.loads(text)\n\
+          \    if isinstance(tasks, dict) and 'answer' in tasks:\n        tasks =\
+          \ tasks['answer']\n    if isinstance(tasks, str):\n        tasks = json.loads(tasks)\n\
+          \    return {\n        \"tasks\": tasks,\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          tasks:
+            children: null
+            type: array[object]
+        selected: false
+        title: Get Plan
+        type: code
+        variables:
+        - value_selector:
+          - '1737973125252'
+          - text
+          variable: text
+      height: 53
+      id: '1737825973829'
+      position:
+        x: 2766
+        y: 378
+      positionAbsolute:
+        x: 2766
+        y: 378
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "# Conversation History:\r\n{{ history }}\r\n\r\n# User's Current\
+          \ Request:\r\n{{current_request}}\r\n\r\n# Available Task Types:\r\n{{task_types}}\r\
+          \n\r\n# Standard Operation Procedure Guidence:\r\n{{sops}}\r\n\r\n# Available\
+          \ Sources:\r\n{{ sources }}\r\n\r\n# Task:\r\nBased on the above chat history\
+          \ between user and assistant as well as the user's current request, write\
+          \ a plan consists of 1 to \r\n{{max_tasks}} tasks of what you should do\
+          \ to achieve the goal.\r\n\r\nIf you encounter errors on the current task,\
+          \ revise and output the current single task only.\r\n\r\nWhen writing the\
+          \ plan, follow the guidelines below: \r\n\r\nNote: Just describes user needs,\
+          \ don't extend or change it. \r\nNote: If the result from 'sql-agent' or\
+          \ 'python-data-agent' is suitable for visualization, call 'plotly-agent'\
+          \ after that.\r\nNote: Always use 'chat-agent' to summrize the conversation\
+          \ by putting it at the end of the plan.\r\n\r\n            \r\nOutput a\
+          \ list of json following the format without any further text or explanation:\r\
+          \n```json\r\n    [\r\n        {\r\n            \"task_id\": str = \"unique\
+          \ identifier for a task in plan, can be an ordinal\",\r\n            \"\
+          dependent_task_ids\": list[str] = \"ids of tasks prerequisite to this task\"\
+          ,\r\n            \"instruction\": \"what you should do in this task, one\
+          \ short phrase or sentence.\",\r\n            \"task_type\": \"type of this\
+          \ task, should be one of Available Task Types\",\r\n            \"source_id\"\
+          : \"the target data source id (key of the dict) for this task. Use empty\
+          \ if not needed.\"\r\n        },\r\n        ...\r\n    ]\r\n```\r\n\r\n\
+          Output JSON:\r\n"
+        title: User Prompt
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1737825792431'
+          - markdown_history
+          variable: history
+        - value_selector:
+          - '1737732680774'
+          - current_request
+          variable: current_request
+        - value_selector:
+          - '1737986727253'
+          - Group1
+          - output
+          variable: task_types
+        - value_selector:
+          - env
+          - max_tasks
+          variable: max_tasks
+        - value_selector:
+          - '1737825792431'
+          - sources
+          variable: sources
+        - value_selector:
+          - '1737986727253'
+          - Group2
+          variable: sops
+      height: 53
+      id: '1737973107943'
+      position:
+        x: 2158
+        y: 472
+      positionAbsolute:
+        x: 2158
+        y: 472
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "You are an expert to make a plan based on some task types to meet\
+          \ the goal of {{goal}}\r\n"
+        title: System Prompt
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1737825918193'
+          - text
+          variable: goal
+      height: 53
+      id: '1737973115187'
+      position:
+        x: 2158
+        y: 378
+      positionAbsolute:
+        x: 2158
+        y: 378
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            response_format: JSON
+            temperature: 0.7
+          mode: chat
+          name: qwen-plus-latest
+          provider: tongyi
+        prompt_template:
+        - id: 818bf899-7dde-4ff9-b5ae-36245c01abd7
+          role: system
+          text: '{{#1737973115187.output#}}'
+        - id: 38ab0ee2-5e54-456d-b794-37c78ecd593a
+          role: user
+          text: '{{#1737973107943.output#}}'
+        selected: false
+        title: '#Plan_Generator'
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1737973125252'
+      position:
+        x: 2462
+        y: 378
+      positionAbsolute:
+        x: 2462
+        y: 378
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main() -> dict:\n    return {\n        \"task_type\": {\n   \
+          \         \"name\": \"sql-agent\",\n            \"description\": \"\"\"\
+          The SQL agent is responsible for generating and executing SQL queries to\
+          \ retrieve relevant data from a database. It is typically invoked first\
+          \ to obtain the necessary data. Note that the SQL agent requires a target\
+          \ data source as a parameter for execution. \"\"\"\n        }\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          task_type:
+            children: null
+            type: object
+        selected: false
+        title: SQL Agent Task Type
+        type: code
+        variables: []
+      height: 53
+      id: '1737983221066'
+      position:
+        x: 1554.1024941249893
+        y: 87.08028200050836
+      positionAbsolute:
+        x: 1554.1024941249893
+        y: 87.08028200050836
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main() -> dict:\n    return {\n        \"task_type\": {\n   \
+          \         \"name\": \"chat-agent\",\n            \"description\": \"\"\"\
+          chat-agent engages in conversation with the user, leveraging prior interactions\
+          \ to maintain context. It typically follows other tasks, ensuring responses\
+          \ are articulated in natural language for clarity and coherence.\n     \
+          \       \"\"\",\n        }\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          task_type:
+            children: null
+            type: object
+        selected: false
+        title: Chat Agent Task Type
+        type: code
+        variables: []
+      height: 53
+      id: '17379850613650'
+      position:
+        x: 1550
+        y: 177.79828670051683
+      positionAbsolute:
+        x: 1550
+        y: 177.79828670051683
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        advanced_settings:
+          group_enabled: true
+          groups:
+          - groupId: 21c4f95e-b75e-45f7-af29-4d9c596f0ec4
+            group_name: Group1
+            output_type: object
+            variables:
+            - - '1737983221066'
+              - task_type
+            - - '17379850613650'
+              - task_type
+            - - '1740886425888'
+              - task_type
+            - - '1740886428130'
+              - task_type
+          - groupId: f35380b0-5965-4c80-8c2f-49d10881deef
+            group_name: Group2
+            output_type: object
+            variables:
+            - - '1740488960526'
+              - output
+        desc: ''
+        output_type: object
+        selected: false
+        title: Task Types Aggregator
+        type: variable-aggregator
+        variables:
+        - - '1737983221066'
+          - task_type
+        - - '17379850613650'
+          - task_type
+      height: 225
+      id: '1737986727253'
+      position:
+        x: 1854
+        y: 378
+      positionAbsolute:
+        x: 1854
+        y: 378
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1737825973829'
+          - tasks
+          variable: plan
+        selected: false
+        title: '#End'
+        type: end
+      height: 89
+      id: '1737987351106'
+      position:
+        x: 3070
+        y: 378
+      positionAbsolute:
+        x: 3070
+        y: 378
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: '#Get_Conversation'
+        tool_configurations: {}
+        tool_label: Get Conversation
+        tool_name: get_conversation
+        tool_parameters:
+          conversation_id:
+            type: mixed
+            value: '{{#1737732680774.conversation_id#}}'
+          similarity_threshold:
+            type: variable
+            value:
+            - env
+            - similarity_threshold
+        type: tool
+      height: 53
+      id: '1738572567433'
+      position:
+        x: 334
+        y: 284
+      positionAbsolute:
+        x: 334
+        y: 284
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: '#Get_Sources_Descriptions'
+        tool_configurations: {}
+        tool_label: Get Sources Information
+        tool_name: get_sources
+        tool_parameters:
+          source_doc_ids:
+            type: mixed
+            value: '{{#1737732680774.source_doc_ids#}}'
+          source_names:
+            type: mixed
+            value: '{{#1737732680774.source_doc_ids#}}'
+        type: tool
+      height: 53
+      id: '1738572614729'
+      position:
+        x: 638
+        y: 284
+      positionAbsolute:
+        x: 638
+        y: 284
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"JSON
+          Format","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1738602551836'
+      position:
+        x: 2170.5950815964275
+        y: 218.5486023220318
+      positionAbsolute:
+        x: 2170.5950815964275
+        y: 218.5486023220318
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: b789bde4-3cb2-43d3-afe3-7f5916d4da2b
+            value: 'true'
+            varType: string
+            variable_selector:
+            - '1737732680774'
+            - use_sop
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: Use SOP ?
+        type: if-else
+      height: 125
+      id: '1740477287498'
+      position:
+        x: 638
+        y: 474
+      positionAbsolute:
+        x: 638
+        y: 474
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: Get SOP Information
+        tool_configurations: {}
+        tool_label: Get SOP Information
+        tool_name: get_sops
+        tool_parameters:
+          similarity_threshold:
+            type: variable
+            value:
+            - env
+            - similarity_threshold
+          user_query:
+            type: mixed
+            value: '{{#1737732680774.current_request#}}'
+        type: tool
+      height: 53
+      id: '1740477334381'
+      position:
+        x: 942
+        y: 510
+      positionAbsolute:
+        x: 942
+        y: 510
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(sops: list) -> dict:\n    return {\n        \"sop\": sops[0]['sops'][0],\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          sop:
+            children: null
+            type: object
+        selected: false
+        title: Get SOP
+        type: code
+        variables:
+        - value_selector:
+          - '1740477334381'
+          - json
+          variable: sops
+      height: 53
+      id: '1740477415449'
+      position:
+        x: 1246
+        y: 532
+      positionAbsolute:
+        x: 1246
+        y: 532
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        output_type: object
+        selected: false
+        title: SOP Aggregator
+        type: variable-aggregator
+        variables:
+        - - '1740477415449'
+          - sop
+        - - '1740488968978'
+          - sop
+      height: 129
+      id: '1740488960526'
+      position:
+        x: 1550
+        y: 472
+      positionAbsolute:
+        x: 1550
+        y: 472
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main() -> dict:\n    return {\n        \"sop\": {},\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          sop:
+            children: null
+            type: object
+        selected: false
+        title: Emtpy SOP
+        type: code
+        variables: []
+      height: 53
+      id: '1740488968978'
+      position:
+        x: 1246
+        y: 626
+      positionAbsolute:
+        x: 1246
+        y: 626
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main() -> dict:\n    return {\n        \"task_type\": {\n   \
+          \         \"name\": \"python-data-agent\",\n            \"description\"\
+          : \"\"\"Manipulate the data provided by the dependent tasks by writing python\
+          \ code by using Pandas, Numpy and Scikit-learn library to solve problem.\n\
+          \            \"\"\",\n        }\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          task_type:
+            children: null
+            type: object
+        selected: false
+        title: Python Data Agent Task Type
+        type: code
+        variables: []
+      height: 53
+      id: '1740886425888'
+      position:
+        x: 1550
+        y: 270.7982867005168
+      positionAbsolute:
+        x: 1550
+        y: 270.7982867005168
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main() -> dict:\n    return {\n        \"task_type\": {\n   \
+          \         \"name\": \"plotly-agent\",\n            \"description\": \"\"\
+          \"Generate a chart can be plotted for the data visualization.\n        \
+          \    \"\"\",\n        }\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          task_type:
+            children: null
+            type: object
+        selected: false
+        title: Plotly Agent Task Type
+        type: code
+        variables: []
+      height: 53
+      id: '1740886428130'
+      position:
+        x: 1550
+        y: 363.7982867005168
+      positionAbsolute:
+        x: 1550
+        y: 363.7982867005168
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -292.3828216441834
+      y: 342.69889360519977
+      zoom: 0.5440422015919866

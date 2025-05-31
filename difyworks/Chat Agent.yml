@@ -1,0 +1,470 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: Chat Agent
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables:
+  - description: ''
+    id: 951b05f6-8155-4460-8cb3-5fe3f1bf6363
+    name: llm_context_size
+    selector:
+    - env
+    - llm_context_size
+    value: 128
+    value_type: number
+  - description: ''
+    id: 35313259-4732-4630-bead-4a36164fb97b
+    name: similarity_threshold
+    selector:
+    - env
+    - similarity_threshold
+    value: 0.3
+    value_type: number
+  - description: ''
+    id: b0044126-d0a9-4155-91b8-686987ec5340
+    name: dummy
+    selector:
+    - env
+    - dummy
+    value: ' '
+    value_type: string
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: tool
+      id: 1737732680774-source-1737819491897-target
+      source: '1737732680774'
+      sourceHandle: source
+      target: '1737819491897'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1737819491897-source-1737825792431-target
+      source: '1737819491897'
+      sourceHandle: source
+      target: '1737825792431'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1737825792431-source-1737825910527-target
+      source: '1737825792431'
+      sourceHandle: source
+      target: '1737825910527'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1737825792431-source-1737825913453-target
+      source: '1737825792431'
+      sourceHandle: source
+      target: '1737825913453'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1737825910527-source-1737825918193-target
+      source: '1737825910527'
+      sourceHandle: source
+      target: '1737825918193'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1737825913453-source-1737825918193-target
+      source: '1737825913453'
+      sourceHandle: source
+      target: '1737825918193'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1737825918193-source-1737825973829-target
+      source: '1737825918193'
+      sourceHandle: source
+      target: '1737825973829'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1737825973829-source-1737951594557-target
+      source: '1737825973829'
+      sourceHandle: source
+      target: '1737951594557'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: '#Start'
+        type: start
+        variables:
+        - label: conversation_id
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: conversation_id
+        - label: current_request
+          max_length: 50000
+          options: []
+          required: true
+          type: paragraph
+          variable: current_request
+      height: 115
+      id: '1737732680774'
+      position:
+        x: 46
+        y: 282
+      positionAbsolute:
+        x: 46
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: '#Get_Conversation_History'
+        tool_configurations: {}
+        tool_label: Get Conversation History
+        tool_name: get_conversation
+        tool_parameters:
+          conversation_id:
+            type: mixed
+            value: '{{#1737732680774.conversation_id#}}'
+          redis_connection_string:
+            type: mixed
+            value: '{{#env.redis_connection_string#}}'
+          redis_index_name:
+            type: mixed
+            value: '{{#env.redis_conversation_index_Name#}}'
+          schema_collection_name:
+            type: mixed
+            value: '{{#env.schema_collection_name#}}'
+          schema_connection_string:
+            type: mixed
+            value: '{{#env.schema_connection_string#}}'
+          schema_database_name:
+            type: mixed
+            value: '{{#env.schema_database_name#}}'
+          similarity_threshold:
+            type: variable
+            value:
+            - env
+            - similarity_threshold
+        type: tool
+      height: 53
+      id: '1737819491897'
+      position:
+        x: 369
+        y: 282
+      positionAbsolute:
+        x: 369
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(conversation: list[dict]) -> dict:\n    return {\n     \
+          \   \"markdown_history\": conversation[0]['markdown_history'],\n       \
+          \ \"conversation\": conversation[0]['conversation'],\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          conversation:
+            children: null
+            type: object
+          markdown_history:
+            children: null
+            type: string
+        selected: false
+        title: Get Conversation
+        type: code
+        variables:
+        - value_selector:
+          - '1737819491897'
+          - json
+          variable: conversation
+      height: 53
+      id: '1737825792431'
+      position:
+        x: 673
+        y: 282
+      positionAbsolute:
+        x: 673
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "You are a chat assistant. \r\nI will give you the conversations\
+          \ between the user and the assistant.\r\nI will give you the currenct request\
+          \ by the user.\r\nI may also give you the relevant information needed for\
+          \ answering the user's request. "
+        title: System Prompt
+        type: template-transform
+        variables: []
+      height: 53
+      id: '1737825910527'
+      position:
+        x: 969
+        y: 195.4466067595535
+      positionAbsolute:
+        x: 969
+        y: 195.4466067595535
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "Conversation:\r\n{{markdown_history}}\r\n\r\nCurrent user requst:\r\
+          \n{{current_request}}\r\n    \r\n\r\nRead through the above information\
+          \ and answer user's current request. Be concise and clear. If the provided\
+          \ reference is not enough to answer the question, state clearly in the answer,\
+          \ DO NOT make up data.\r\n\r\nProvide the answer naturally, do not start\
+          \ the answer with 'Base on the conversation history, ...' or anything like\
+          \ this. \r\n\r\nUse the same language as \"{{ current_request }}\" to answer\
+          \ the question.\r\nUse markdown for the response"
+        title: User Prompt
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1737825792431'
+          - markdown_history
+          variable: markdown_history
+        - value_selector:
+          - '1737732680774'
+          - current_request
+          variable: current_request
+      height: 53
+      id: '1737825913453'
+      position:
+        x: 969
+        y: 390.750831544583
+      positionAbsolute:
+        x: 969
+        y: 390.750831544583
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            response_format: JSON
+            temperature: 0.7
+          mode: chat
+          name: qwen-plus-latest
+          provider: tongyi
+        prompt_template:
+        - id: 15c11165-167f-4bd8-80ce-0174b29244b9
+          role: system
+          text: '{{#1737825910527.output#}}'
+        - id: 75050545-4bae-4d2c-85e4-6e914b9515f4
+          role: user
+          text: '{{#1737825913453.output#}}'
+        selected: false
+        title: '#Chat_Generator'
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1737825918193'
+      position:
+        x: 1258.5533932404464
+        y: 287.928809012738
+      positionAbsolute:
+        x: 1258.5533932404464
+        y: 287.928809012738
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(text: str) -> dict:\n    try:\n        text\
+          \ = json.loads(text)['answer']\n    except:\n        pass\n    return {\n\
+          \        \"role\": \"chat-agent\",\n        \"markdowns\": [text],\n   \
+          \ }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          markdowns:
+            children: null
+            type: array[string]
+          role:
+            children: null
+            type: string
+        selected: false
+        title: Prepare Message
+        type: code
+        variables:
+        - value_selector:
+          - '1737825918193'
+          - text
+          variable: text
+      height: 53
+      id: '1737825973829'
+      position:
+        x: 1563.6081545245754
+        y: 287.928809012738
+      positionAbsolute:
+        x: 1563.6081545245754
+        y: 287.928809012738
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1737825973829'
+          - role
+          variable: role
+        - value_selector:
+          - '1737825973829'
+          - markdowns
+          variable: markdowns
+        selected: false
+        title: '#End'
+        type: end
+      height: 115
+      id: '1737951594557'
+      position:
+        x: 1867.6081545245754
+        y: 287.928809012738
+      positionAbsolute:
+        x: 1867.6081545245754
+        y: 287.928809012738
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"JSON
+          format","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1738602465465'
+      position:
+        x: 1275.7735701181093
+        y: 134.83716883184297
+      positionAbsolute:
+        x: 1275.7735701181093
+        y: 134.83716883184297
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    viewport:
+      x: -26.421542284642783
+      y: 90.46886324830626
+      zoom: 0.7578582832552005

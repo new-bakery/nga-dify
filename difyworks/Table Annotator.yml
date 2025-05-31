@@ -1,0 +1,363 @@
+app:
+  description: Generate description based on the given information
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: Table Annotator
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: template-transform
+      id: 1736052717181-source-17362493799600-target
+      source: '1736052717181'
+      sourceHandle: source
+      target: '17362493799600'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: template-transform
+      id: 1736052717181-source-17362493844440-target
+      source: '1736052717181'
+      sourceHandle: source
+      target: '17362493844440'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 17362493799600-source-17362493895000-target
+      source: '17362493799600'
+      sourceHandle: source
+      target: '17362493895000'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 17362493844440-source-17362493895000-target
+      source: '17362493844440'
+      sourceHandle: source
+      target: '17362493895000'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 17362493895000-source-1736238894274-target
+      source: '17362493895000'
+      sourceHandle: source
+      target: '1736238894274'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - label: lang
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: lang
+        - label: database_name
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: database_name
+        - label: database_description
+          max_length: 5000
+          options: []
+          required: true
+          type: paragraph
+          variable: database_description
+        - label: table_name
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: table_name
+        - label: table_domains
+          max_length: 5000
+          options: []
+          required: true
+          type: paragraph
+          variable: table_domains
+        - label: columns
+          max_length: 50000
+          options: []
+          required: true
+          type: paragraph
+          variable: columns
+        - label: primary_keys
+          max_length: 5000
+          options: []
+          required: true
+          type: paragraph
+          variable: primary_keys
+        - label: foreign_keys
+          max_length: 5000
+          options: []
+          required: true
+          type: paragraph
+          variable: foreign_keys
+      height: 272
+      id: '1736052717181'
+      position:
+        x: 80.14130060936986
+        y: 552.7880490859453
+      positionAbsolute:
+        x: 80.14130060936986
+        y: 552.7880490859453
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '17362493895000'
+          - text
+          variable: description
+        selected: false
+        title: End
+        type: end
+      height: 90
+      id: '1736238894274'
+      position:
+        x: 1076.4395626737355
+        y: 619.9008895232583
+      positionAbsolute:
+        x: 1076.4395626737355
+        y: 619.9008895232583
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1736146863833'
+        selected: false
+        template: "You are a database expert and good at naming tables or columns.I\
+          \ am going to give you the following information:\r\n\r\n[Language] is a\
+          \ comma dilimited string. Each part means the id of the language. For example\
+          \ : \"en,zh\" means English and Chinese.\r\n\r\n[Database Name] is the name\
+          \ of the database.\r\n\r\n[Database Description] will tell you the overall\
+          \ introduction of the database. You can use it for reference to generate\
+          \ new descriptions.\r\n\r\n[Table Name] is the name of the table in the\
+          \ database. This table beylongs to the [Database Name]. It can be schema_name.table_name\
+          \ style or just table_name.\r\n\r\n[Primary Keys], [Foreign Keys] are json\
+          \ style data will give you the introduction of tables primary keys or foreign\
+          \ keys. They can be empty.\r\n\r\n[Domains] is a json style list of text.\
+          \ Each text represents the business areas of the table belongs to. It can\
+          \ be empty. You can use it to determine how to generate the description.\r\
+          \n\r\n[Columns] are json style data, which describe the columns information\
+          \ of the [Table Name]. It will contains [Column Name], [Type], [Description].\
+          \ The [Description] can be empty.\r\n\r\nBased the given inforamtion as\
+          \ above, please generate a brief description, and ONY brief description,\
+          \ to be the [Table Description] for the [Table Name] and [Column Description]\
+          \ for each column in [Columns]. If the description of table or column is\
+          \ given, use the given one. Please use all the given languages in \"{{ lang\
+          \ }}\" to determine which language to use. For example : 'en' means use\
+          \ English. 'zh' means Chinese.\r\n\r\nNote : Please response in a json object\
+          \ format, based on the following :\r\n\r\n{\r\n    \"en\":{\r\n        \"\
+          table_description\" : \"The table description content\"\r\n        \"columns\"\
+          \ : {\r\n            \"column_A\" : \"column_A description\",\r\n      \
+          \      \"column_B\" : \"column_B description\"\r\n        }\r\n    },\r\n\
+          \    \"zh\":{\r\n        \"table_description\" : \"这是表的说明\"\r\n        \"\
+          columns\" : {\r\n            \"column_A\" : \"column_A 的说明\",\r\n      \
+          \      \"column_B\" : \"column_B 的说明\"\r\n        }\r\n    }\r\n\r\n}\r\n\
+          \r\nNote : The answer you generated should be a string can be loaded by\
+          \ json.loads without any error. DO NOT generate mark down or any other comments.\
+          \ JUST JSON STRING.\r\n\r\nNote : Your answer should be clear and fact-based,\
+          \ without subjective opinions for each table or column, and try your best\
+          \ to generate their description based on the provided information. If you\
+          \ do not know how to generate the table or column description, just put\
+          \ empty string ('') without any explainations.\r\n\r\n"
+        title: SYS TEMPLATE
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1736052717181'
+          - lang
+          variable: lang
+      height: 54
+      id: '17362493799600'
+      position:
+        x: 408.34304151709443
+        y: 570.9696086046554
+      positionAbsolute:
+        x: 408.34304151709443
+        y: 570.9696086046554
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1736146863833'
+        selected: false
+        template: "[Database Name]: {{database_name}}\r\n[Database Description]: {{\
+          \ database_description }}\r\n[Table Name]: {{ table_name }}\r\n[Primary\
+          \ Keys]: {{ primary_keys }}\r\n[Foreign Keys]: {{ foreign_keys }}\r\n[Domains]\
+          \ : {{ table_domains }}\r\n[Columns] : {{ columns }}"
+        title: USER_TEMPLATE
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1736052717181'
+          - database_description
+          variable: database_description
+        - value_selector:
+          - '1736052717181'
+          - table_name
+          variable: table_name
+        - value_selector:
+          - '1736052717181'
+          - table_domains
+          variable: table_domains
+        - value_selector:
+          - '1736052717181'
+          - primary_keys
+          variable: primary_keys
+        - value_selector:
+          - '1736052717181'
+          - foreign_keys
+          variable: foreign_keys
+        - value_selector:
+          - '1736052717181'
+          - columns
+          variable: columns
+        - value_selector:
+          - '1736052717181'
+          - database_name
+          variable: database_name
+      height: 54
+      id: '17362493844440'
+      position:
+        x: 422.49076358309185
+        y: 719.0949233735421
+      positionAbsolute:
+        x: 422.49076358309185
+        y: 719.0949233735421
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: true
+        iteration_id: '1736146863833'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen-plus-latest
+          provider: tongyi
+        prompt_template:
+        - id: 17374f9a-dbed-4320-8e2a-4e57fa17d5a6
+          role: system
+          text: '{{#17362493799600.output#}}'
+        - id: 48ddbabb-f290-42ce-a98a-e5f72377e0d8
+          role: user
+          text: '{{#17362493844440.output#}}'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '17362493895000'
+      position:
+        x: 767.1578254943416
+        y: 620.0349886749146
+      positionAbsolute:
+        x: 767.1578254943416
+        y: 620.0349886749146
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    viewport:
+      x: -33.302236361984114
+      y: -249.3298439105683
+      zoom: 0.8705505632961267

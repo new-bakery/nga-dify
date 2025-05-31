@@ -1,0 +1,1128 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: Plotly Agent
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables:
+  - description: ''
+    id: c3f79dc4-fe15-48fc-84ed-6bedbb7fba41
+    name: expire
+    selector:
+    - env
+    - expire
+    value: 30
+    value_type: number
+  - description: ''
+    id: ee9f1df3-4823-4715-b866-00ff9f3496d9
+    name: max_retries
+    selector:
+    - env
+    - max_retries
+    value: 3
+    value_type: number
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: code
+      id: 1740831580976-source-1740849730732-target
+      source: '1740831580976'
+      sourceHandle: source
+      target: '1740849730732'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: iteration
+      id: 1740849730732-source-1740849821168-target
+      source: '1740849730732'
+      sourceHandle: source
+      target: '1740849821168'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1740849821168'
+        sourceType: tool
+        targetType: if-else
+      id: 1740851034998-source-1740851104621-target
+      source: '1740851034998'
+      sourceHandle: source
+      target: '1740851104621'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1740849821168'
+        sourceType: if-else
+        targetType: tool
+      id: 1740851104621-true-1740851159395-target
+      source: '1740851104621'
+      sourceHandle: 'true'
+      target: '1740851159395'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1740849821168'
+        sourceType: if-else
+        targetType: code
+      id: 1740851104621-false-1740851226025-target
+      source: '1740851104621'
+      sourceHandle: 'false'
+      target: '1740851226025'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1740849821168'
+        sourceType: template-transform
+        targetType: llm
+      id: 1740851309254-source-1740851575030-target
+      source: '1740851309254'
+      sourceHandle: source
+      target: '1740851575030'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1740849821168'
+        sourceType: template-transform
+        targetType: llm
+      id: 1740851347572-source-1740851575030-target
+      source: '1740851347572'
+      sourceHandle: source
+      target: '1740851575030'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1740849821168'
+        sourceType: llm
+        targetType: tool
+      id: 1740851575030-source-1740851641323-target
+      source: '1740851575030'
+      sourceHandle: source
+      target: '1740851641323'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1740849821168'
+        sourceType: tool
+        targetType: code
+      id: 1740851641323-source-1740851707722-target
+      source: '1740851641323'
+      sourceHandle: source
+      target: '1740851707722'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1740849821168'
+        sourceType: tool
+        targetType: tool
+      id: 1740851882977-source-1740851922877-target
+      source: '1740851882977'
+      sourceHandle: source
+      target: '1740851922877'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1740849821168'
+        sourceType: tool
+        targetType: variable-aggregator
+      id: 1740851922877-source-1740852091721-target
+      source: '1740851922877'
+      sourceHandle: source
+      target: '1740852091721'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1740849821168'
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1740851226025-source-1740852091721-target
+      selected: false
+      source: '1740851226025'
+      sourceHandle: source
+      target: '1740852091721'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1740849821168'
+        sourceType: code
+        targetType: tool
+      id: 1740851707722-source-1740851882977-target
+      source: '1740851707722'
+      sourceHandle: source
+      target: '1740851882977'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1740849821168'
+        sourceType: tool
+        targetType: template-transform
+      id: 1740851159395-source-1740851309254-target
+      source: '1740851159395'
+      sourceHandle: source
+      target: '1740851309254'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1740849821168'
+        sourceType: tool
+        targetType: template-transform
+      id: 1740851159395-source-1740851347572-target
+      source: '1740851159395'
+      sourceHandle: source
+      target: '1740851347572'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1740849821168'
+        sourceType: iteration-start
+        targetType: if-else
+      id: 1740849821168start-source-1740852727062-target
+      source: 1740849821168start
+      sourceHandle: source
+      target: '1740852727062'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1740849821168'
+        sourceType: if-else
+        targetType: tool
+      id: 1740852727062-false-1740851034998-target
+      source: '1740852727062'
+      sourceHandle: 'false'
+      target: '1740851034998'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1740849821168'
+        sourceType: if-else
+        targetType: tool
+      id: 1740852727062-true-1740852841566-target
+      source: '1740852727062'
+      sourceHandle: 'true'
+      target: '1740852841566'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1740849821168'
+        sourceType: tool
+        targetType: tool
+      id: 1740852841566-source-1740851034998-target
+      source: '1740852841566'
+      sourceHandle: source
+      target: '1740851034998'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: iteration
+        targetType: code
+      id: 1740849821168-source-1740896933805-target
+      source: '1740849821168'
+      sourceHandle: source
+      target: '1740896933805'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1740896933805-source-1740831756855-target
+      source: '1740896933805'
+      sourceHandle: source
+      target: '1740831756855'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: '#Start'
+        type: start
+        variables:
+        - label: instruction
+          max_length: 80000
+          options: []
+          required: true
+          type: paragraph
+          variable: instruction
+        - label: data
+          max_length: 99999999
+          options: []
+          required: true
+          type: paragraph
+          variable: data
+      height: 115
+      id: '1740831580976'
+      position:
+        x: 30
+        y: 773.5
+      positionAbsolute:
+        x: 30
+        y: 773.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1740896933805'
+          - timestamp
+          variable: timestamp
+        - value_selector:
+          - '1740896933805'
+          - role
+          variable: role
+        - value_selector:
+          - '1740896933805'
+          - is_error
+          variable: is_error
+        - value_selector:
+          - '1740896933805'
+          - error_message
+          variable: error_message
+        - value_selector:
+          - '1740896933805'
+          - jsons
+          variable: jsons
+        - value_selector:
+          - '1740896933805'
+          - thought_process
+          variable: thought_process
+        - value_selector:
+          - '1740896933805'
+          - row_count
+          variable: row_count
+        selected: false
+        title: '#End'
+        type: end
+      height: 245
+      id: '1740831756855'
+      position:
+        x: 5014
+        y: 773.5
+      positionAbsolute:
+        x: 5014
+        y: 773.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(max_retries: int) -> dict:\n    return {\n        \"loop\"\
+          : [i+1 for i in range(max_retries)],\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          loop:
+            children: null
+            type: array[number]
+        selected: false
+        title: Retries
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - max_retries
+          variable: max_retries
+      height: 53
+      id: '1740849730732'
+      position:
+        x: 334
+        y: 773.5
+      positionAbsolute:
+        x: 334
+        y: 773.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        error_handle_mode: terminated
+        height: 1147
+        is_parallel: false
+        iterator_selector:
+        - '1740849730732'
+        - loop
+        output_selector:
+        - '1740852091721'
+        - output
+        output_type: array[object]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1740849821168start
+        title: Iteration
+        type: iteration
+        width: 3831
+      height: 1147
+      id: '1740849821168'
+      position:
+        x: 638
+        y: 773.5
+      positionAbsolute:
+        x: 638
+        y: 773.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 3831
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1740849821168start
+      parentId: '1740849821168'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 662
+        y: 841.5
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1740849821168'
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: Get Is Error
+        tool_configurations: {}
+        tool_label: Redis Cache
+        tool_name: redis_cache
+        tool_parameters:
+          action:
+            type: mixed
+            value: get
+          dify_workflow_runid:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+          expire:
+            type: variable
+            value:
+            - env
+            - expire
+          key:
+            type: mixed
+            value: is_error
+          value:
+            type: mixed
+            value: 'false'
+        type: tool
+      height: 53
+      id: '1740851034998'
+      parentId: '1740849821168'
+      position:
+        x: 711.8542118978517
+        y: 134.64404506368965
+      positionAbsolute:
+        x: 1349.8542118978517
+        y: 908.1440450636896
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 877ead64-6eab-4462-86ac-ffb5acc32e99
+            value: 'true'
+            varType: string
+            variable_selector:
+            - '1740851034998'
+            - text
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        isInIteration: true
+        iteration_id: '1740849821168'
+        selected: false
+        title: IF/ELSE
+        type: if-else
+      height: 125
+      id: '1740851104621'
+      parentId: '1740849821168'
+      position:
+        x: 1034.0357130984191
+        y: 133.1924241241902
+      positionAbsolute:
+        x: 1672.0357130984191
+        y: 906.6924241241902
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1740849821168'
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: Get Error
+        tool_configurations: {}
+        tool_label: Redis Cache
+        tool_name: redis_cache
+        tool_parameters:
+          action:
+            type: mixed
+            value: get
+          dify_workflow_runid:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+          expire:
+            type: variable
+            value:
+            - env
+            - expire
+          key:
+            type: mixed
+            value: error
+          value:
+            type: mixed
+            value: ' '
+        type: tool
+      height: 53
+      id: '1740851159395'
+      parentId: '1740849821168'
+      position:
+        x: 1349.496660178149
+        y: 145.74446275021035
+      positionAbsolute:
+        x: 1987.496660178149
+        y: 919.2444627502103
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\ndef main() -> dict:\n    return {\n        \"nothing\": [],\n   \
+          \ }\n"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1740849821168'
+        outputs:
+          nothing:
+            children: null
+            type: array[object]
+        selected: false
+        title: Do Nothing
+        type: code
+        variables: []
+      height: 53
+      id: '1740851226025'
+      parentId: '1740849821168'
+      position:
+        x: 1440.5716694806883
+        y: 311.55990381596484
+      positionAbsolute:
+        x: 2078.5716694806883
+        y: 1085.0599038159648
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1740849821168'
+        selected: false
+        template: "You are an expert of writing python3 code based on instructions\
+          \ for generating ploty based charts.\r\nYou will help me finish the code\
+          \ based on the template and following the given instructions.\r\nI will\
+          \ provide the current user's request which you need to draw a plot for.\r\
+          \nI may also provide the relevant data to the current request.\r\nI will\
+          \ also give you a piece of error message, which you need to avoid when writing\
+          \ the code.\r\n"
+        title: System Prompt
+        type: template-transform
+        variables: []
+      height: 53
+      id: '1740851309254'
+      parentId: '1740849821168'
+      position:
+        x: 1662.7633588240865
+        y: 70.44155713432144
+      positionAbsolute:
+        x: 2300.7633588240865
+        y: 843.9415571343214
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1740849821168'
+        selected: false
+        template: "Here is the instruction from user:\r\n{{ instruction }}\r\n\r\n\
+          Here us the related data I give you. These data will be present as parameter\
+          \ \"data\" in the \"main\" function.\r\n\r\n{{data}}\r\n\r\nHere is the\
+          \ template of code:\r\n\r\n```python\r\ndef main(data):\r\n    # Your code\
+          \ goes here\r\n    # Return pandas dataframe at the end of the function\r\
+          \n```\r\n\r\nThere is errors we met for previous tries. Please avoid these\
+          \ errors:\r\n{{error}}\r\n\r\nYour task is to read through all the above\
+          \ information and correct the above Python code based on the error message\
+          \ and make it executable without any error. \r\n    - The response should\
+          \ only contain executable Python code, without any additional text explanations.\r\
+          \n    - Keep in mind that the purpose of the chart is to answer the user's\
+          \ current query.\r\n    - Do NOT include 'fig.show()' in the code. Instead,\
+          \ always use  'to_html(... , full_html=True, include_plotlyjs=\"cdn\")'\
+          \ to get the html string and return the html string at the end of function.\r\
+          \n    - Do NOT forget 'import pandas as pd' in the code.\r\n    - If the\
+          \ user indicates a need for a certain type of chart in the question, then\
+          \ draw it according to the user's needs. \r\n    - Note: ONLY use the data\
+          \ provided in Conversation or relevant data, do Not make up any data.\r\n\
+          \    - Note: Include all the relevant data points in the code, do NOT comment\
+          \ out any relevant data points.\r\n\r\n    Executable Chart Code without\
+          \ Explanation:"
+        title: User Prompt
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1740831580976'
+          - instruction
+          variable: instruction
+        - value_selector:
+          - '1740831580976'
+          - data
+          variable: data
+        - value_selector:
+          - '1740851159395'
+          - text
+          variable: error
+      height: 53
+      id: '1740851347572'
+      parentId: '1740849821168'
+      position:
+        x: 1634.765188606846
+        y: 221.835375941017
+      positionAbsolute:
+        x: 2272.765188606846
+        y: 995.335375941017
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: true
+        iteration_id: '1740849821168'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen-plus-latest
+          provider: tongyi
+        prompt_template:
+        - id: c22f1a58-0da4-4fcb-9a0c-799ec8112bae
+          role: system
+          text: '{{#1740851309254.output#}}'
+        - id: 19954ebb-e088-44e8-bafc-e133a3ac691b
+          role: user
+          text: '{{#1740851347572.output#}}'
+        selected: false
+        title: '#Python_Generator'
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1740851575030'
+      parentId: '1740849821168'
+      position:
+        x: 1967.5255170166506
+        y: 118.0698718181219
+      positionAbsolute:
+        x: 2605.5255170166506
+        y: 891.5698718181219
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1740849821168'
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: '#Python3_Code_Runner'
+        tool_configurations: {}
+        tool_label: Python3 Code Runner
+        tool_name: python3_runner
+        tool_parameters:
+          code:
+            type: mixed
+            value: '{{#1740851575030.text#}}'
+          data:
+            type: mixed
+            value: '{{#1740831580976.data#}}'
+          result_type:
+            type: mixed
+            value: str
+        type: tool
+      height: 53
+      id: '1740851641323'
+      parentId: '1740849821168'
+      position:
+        x: 2292.260335647336
+        y: 126.59502414126234
+      positionAbsolute:
+        x: 2930.260335647336
+        y: 900.0950241412623
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\ndef main(res: list[dict], code: str) -> dict:\n    message = {\n\
+          \        \"is_error\": 'true' if res[0].get('is_error', 'false') else 'false',\n\
+          \        \"error_message\": res[0].get('error',''),\n        \"result\"\
+          : res[0].get('result', \"\"),\n        \"thought_process\": [code],\n  \
+          \  }\n    return {\n        \"is_error\": message['is_error'],\n       \
+          \ \"error\": message['error_message'],\n        \"result\": message['result'],\n\
+          \        \"code\": message['thought_process'],\n        \"message\": [message],\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1740849821168'
+        outputs:
+          code:
+            children: null
+            type: array[string]
+          error:
+            children: null
+            type: string
+          is_error:
+            children: null
+            type: string
+          message:
+            children: null
+            type: array[object]
+          result:
+            children: null
+            type: string
+        selected: false
+        title: '#Get_Python_Execution_Result'
+        type: code
+        variables:
+        - value_selector:
+          - '1740851641323'
+          - json
+          variable: res
+        - value_selector:
+          - '1740851575030'
+          - text
+          variable: code
+      height: 53
+      id: '1740851707722'
+      parentId: '1740849821168'
+      position:
+        x: 2595.5530002316154
+        y: 120.71428571428567
+      positionAbsolute:
+        x: 3233.5530002316154
+        y: 894.2142857142857
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1740849821168'
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: Set Is Error
+        tool_configurations: {}
+        tool_label: Redis Cache
+        tool_name: redis_cache
+        tool_parameters:
+          action:
+            type: mixed
+            value: set
+          dify_workflow_runid:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+          expire:
+            type: variable
+            value:
+            - env
+            - expire
+          key:
+            type: mixed
+            value: is_error
+          value:
+            type: mixed
+            value: '{{#1740851707722.is_error#}}'
+        type: tool
+      height: 53
+      id: '1740851882977'
+      parentId: '1740849821168'
+      position:
+        x: 2873.553000231615
+        y: 135
+      positionAbsolute:
+        x: 3511.553000231615
+        y: 908.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1740849821168'
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: Set Error
+        tool_configurations: {}
+        tool_label: Redis Cache
+        tool_name: redis_cache
+        tool_parameters:
+          action:
+            type: mixed
+            value: set
+          dify_workflow_runid:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+          expire:
+            type: variable
+            value:
+            - env
+            - expire
+          key:
+            type: mixed
+            value: error
+          value:
+            type: mixed
+            value: '{{#1740851707722.error#}}'
+        type: tool
+      height: 53
+      id: '1740851922877'
+      parentId: '1740849821168'
+      position:
+        x: 3174.6958573744723
+        y: 137.85714285714266
+      positionAbsolute:
+        x: 3812.6958573744723
+        y: 911.3571428571427
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1740849821168'
+        output_type: array[object]
+        selected: false
+        title: Python Run Result
+        type: variable-aggregator
+        variables:
+        - - '1740851707722'
+          - message
+        - - '1740851226025'
+          - nothing
+      height: 129
+      id: '1740852091721'
+      parentId: '1740849821168'
+      position:
+        x: 3500.6841749501928
+        y: 308.57510684120894
+      positionAbsolute:
+        x: 4138.684174950193
+        y: 1082.075106841209
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: '='
+            id: 29f2d63e-ca0d-4810-98d2-2b9e901a55de
+            value: '0'
+            varType: number
+            variable_selector:
+            - '1740849821168'
+            - index
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        isInIteration: true
+        iteration_id: '1740849821168'
+        selected: false
+        title: IF/ELSE 2
+        type: if-else
+      height: 125
+      id: '1740852727062'
+      parentId: '1740849821168'
+      position:
+        x: 133.2780316430916
+        y: 65
+      positionAbsolute:
+        x: 771.2780316430916
+        y: 838.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1740849821168'
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: Set Fake Error
+        tool_configurations: {}
+        tool_label: Redis Cache
+        tool_name: redis_cache
+        tool_parameters:
+          action:
+            type: mixed
+            value: set
+          dify_workflow_runid:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+          expire:
+            type: variable
+            value:
+            - env
+            - expire
+          key:
+            type: mixed
+            value: is_error
+          value:
+            type: mixed
+            value: 'true'
+        type: tool
+      height: 53
+      id: '1740852841566'
+      parentId: '1740849821168'
+      position:
+        x: 422.0852386864276
+        y: 72.46186197110956
+      positionAbsolute:
+        x: 1060.0852386864276
+        y: 845.9618619711096
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\n\nfrom datetime import datetime\n\ndef main(results) -> dict:\n \
+          \   res = {\n        \"timestamp\": datetime.now().isoformat(timespec='milliseconds'),\n\
+          \        \"role\": \"plotly-agent\",\n        \"is_error\": False,\n   \
+          \     \"error_message\": '',\n        \"jsons\": [],\n        \"thought_process\"\
+          : [],\n        \"row_count\": 0,\n    }\n    retry = next((item for item\
+          \ in results if item.get(\"is_error\", None) == \"false\"), None)\n    if\
+          \ retry:\n        data = retry\n    else:\n        res['is_error'] = True\n\
+          \        res['error_message'] = 'all_retries_failed'\n        for item in\
+          \ results:\n            res['error_message'] += '\\n'\n            res['error_message']\
+          \ += item.get('error_message', '')\n    if data:\n        is_error = data.get('is_error',\
+          \ None)\n        error_message = data.get('error', None)\n        result\
+          \ = data.get('result', '')\n        code = data.get('thought_process', '')\n\
+          \        res[\"jsons\"] = []\n        res[\"is_error\"] = is_error\n   \
+          \     res[\"thought_process\"] = [result]\n        res[\"row_count\"] =\
+          \ len(result)\n    res['is_error'] = str(res['is_error']).lower()\n    return\
+          \ res\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          error_message:
+            children: null
+            type: string
+          is_error:
+            children: null
+            type: string
+          jsons:
+            children: null
+            type: array[object]
+          role:
+            children: null
+            type: string
+          row_count:
+            children: null
+            type: number
+          thought_process:
+            children: null
+            type: array[string]
+          timestamp:
+            children: null
+            type: string
+        selected: false
+        title: Prepare Message
+        type: code
+        variables:
+        - value_selector:
+          - '1740849821168'
+          - output
+          variable: results
+      height: 53
+      id: '1740896933805'
+      position:
+        x: 4601.999999999999
+        y: 773.5
+      positionAbsolute:
+        x: 4601.999999999999
+        y: 773.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -1892.299739886208
+      y: -492.1884859104814
+      zoom: 1.0126824271599038

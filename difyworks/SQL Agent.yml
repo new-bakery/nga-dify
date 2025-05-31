@@ -1,0 +1,2517 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: SQL Agent
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables:
+  - description: ''
+    id: fb75e59a-4132-4efe-a00e-198ae32c4e0c
+    name: max_rows
+    selector:
+    - env
+    - max_rows
+    value: 524
+    value_type: number
+  - description: ''
+    id: 45e3686d-6112-489c-ac32-28aecfa9873c
+    name: dummy
+    selector:
+    - env
+    - dummy
+    value: ' '
+    value_type: string
+  - description: ''
+    id: a1cd2037-2a3b-4db5-a9d1-e722c51f4188
+    name: max_retries
+    selector:
+    - env
+    - max_retries
+    value: 3
+    value_type: number
+  - description: ''
+    id: 02cc8201-7b59-4111-8ba5-3288e319f2ac
+    name: similarity_threshold
+    selector:
+    - env
+    - similarity_threshold
+    value: 0.3
+    value_type: number
+  - description: ''
+    id: 1dddd43e-2650-4f22-890e-34649a2f9b6c
+    name: schema_token_threshold
+    selector:
+    - env
+    - schema_token_threshold
+    value: 8000
+    value_type: number
+  - description: ''
+    id: 31f5dba5-8a03-4394-bf83-d5557382c765
+    name: llm_context_size
+    selector:
+    - env
+    - llm_context_size
+    value: 128
+    value_type: number
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1737029930317-source-1737030699405-target
+      source: '1737029930317'
+      sourceHandle: source
+      target: '1737030699405'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1737030413470-source-1737030699405-target
+      source: '1737030413470'
+      sourceHandle: source
+      target: '1737030699405'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 1737030699405-source-1737122259093-target
+      source: '1737030699405'
+      sourceHandle: source
+      target: '1737122259093'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1737122259093-source-1737133452919-target
+      source: '1737122259093'
+      sourceHandle: source
+      target: '1737133452919'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: if-else
+      id: 1737133452919-source-1737133612500-target
+      source: '1737133452919'
+      sourceHandle: source
+      target: '1737133612500'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1737133722940-source-1737134068275-target
+      source: '1737133722940'
+      sourceHandle: source
+      target: '1737134068275'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: iteration
+      id: 1737134068275-source-1737134108423-target
+      source: '1737134068275'
+      sourceHandle: source
+      target: '1737134108423'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: iteration-start
+        targetType: tool
+      id: 1737134108423start-source-1737134286394-target
+      source: 1737134108423start
+      sourceHandle: source
+      target: '1737134286394'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: tool
+        targetType: if-else
+      id: 1737134286394-source-1737134425627-target
+      source: '1737134286394'
+      sourceHandle: source
+      target: '1737134425627'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: if-else
+        targetType: code
+      id: 1737134425627-false-1737134475180-target
+      source: '1737134425627'
+      sourceHandle: 'false'
+      target: '1737134475180'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: if-else
+        targetType: template-transform
+      id: 1737134425627-true-1737134548486-target
+      source: '1737134425627'
+      sourceHandle: 'true'
+      target: '1737134548486'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: if-else
+        targetType: template-transform
+      id: 1737134425627-true-1737134564806-target
+      source: '1737134425627'
+      sourceHandle: 'true'
+      target: '1737134564806'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: template-transform
+        targetType: llm
+      id: 1737134548486-source-1737135323311-target
+      source: '1737134548486'
+      sourceHandle: source
+      target: '1737135323311'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: template-transform
+        targetType: llm
+      id: 1737134564806-source-1737135323311-target
+      source: '1737134564806'
+      sourceHandle: source
+      target: '1737135323311'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: llm
+        targetType: tool
+      id: 1737135323311-source-1737135385562-target
+      source: '1737135323311'
+      sourceHandle: source
+      target: '1737135385562'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: code
+        targetType: if-else
+      id: 1737135439782-source-1737135558246-target
+      source: '1737135439782'
+      sourceHandle: source
+      target: '1737135558246'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: if-else
+        targetType: tool
+      id: 1737135558246-true-1737135585328-target
+      source: '1737135558246'
+      sourceHandle: 'true'
+      target: '1737135585328'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1737134475180-source-1737135652229-target
+      source: '1737134475180'
+      sourceHandle: source
+      target: '1737135652229'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: tool
+        targetType: code
+      id: 1737135385562-source-1737135439782-target
+      source: '1737135385562'
+      sourceHandle: source
+      target: '1737135439782'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: tool
+        targetType: variable-aggregator
+      id: 1737135585328-source-1737135652229-target
+      source: '1737135585328'
+      sourceHandle: source
+      target: '1737135652229'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1737567390480-source-1737029930317-target
+      source: '1737567390480'
+      sourceHandle: source
+      target: '1737029930317'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1737567390480-source-1737030413470-target
+      selected: false
+      source: '1737567390480'
+      sourceHandle: source
+      target: '1737030413470'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1737133612500-true-1737133722940-target
+      source: '1737133612500'
+      sourceHandle: 'true'
+      target: '1737133722940'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: iteration
+        targetType: variable-aggregator
+      id: 1737134108423-source-1737826114253-target
+      source: '1737134108423'
+      sourceHandle: source
+      target: '1737826114253'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: code
+      id: 1737826114253-source-1737618871625-target
+      source: '1737826114253'
+      sourceHandle: source
+      target: '1737618871625'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: tool
+      id: 1736929247628-source-1738478662883-target
+      source: '1736929247628'
+      sourceHandle: source
+      target: '1738478662883'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1738478662883-source-1737567390480-target
+      source: '1738478662883'
+      sourceHandle: source
+      target: '1737567390480'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: variable-aggregator
+      id: 1737133612500-false-1737826114253-target
+      source: '1737133612500'
+      sourceHandle: 'false'
+      target: '1737826114253'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1737618871625-source-1737135856682-target
+      source: '1737618871625'
+      sourceHandle: source
+      target: '1737135856682'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1737133612500-true-1738744441027-target
+      source: '1737133612500'
+      sourceHandle: 'true'
+      target: '1738744441027'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1737133612500-true-1738744463789-target
+      source: '1737133612500'
+      sourceHandle: 'true'
+      target: '1738744463789'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1738744441027-source-1737134068275-target
+      source: '1738744441027'
+      sourceHandle: source
+      target: '1737134068275'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1738744463789-source-1737134068275-target
+      source: '1738744463789'
+      sourceHandle: source
+      target: '1737134068275'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: iteration-start
+        targetType: tool
+      id: 1737134108423start-source-1738744614565-target
+      source: 1737134108423start
+      sourceHandle: source
+      target: '1738744614565'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: iteration-start
+        targetType: tool
+      id: 1737134108423start-source-1738744621967-target
+      source: 1737134108423start
+      sourceHandle: source
+      target: '1738744621967'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: tool
+        targetType: if-else
+      id: 1738744614565-source-1737134425627-target
+      source: '1738744614565'
+      sourceHandle: source
+      target: '1737134425627'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: tool
+        targetType: if-else
+      id: 1738744621967-source-1737134425627-target
+      source: '1738744621967'
+      sourceHandle: source
+      target: '1737134425627'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: if-else
+        targetType: tool
+      id: 1737135558246-false-1738744829795-target
+      source: '1737135558246'
+      sourceHandle: 'false'
+      target: '1738744829795'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: if-else
+        targetType: tool
+      id: 1737135558246-false-1738744836673-target
+      source: '1737135558246'
+      sourceHandle: 'false'
+      target: '1738744836673'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: tool
+        targetType: variable-aggregator
+      id: 1738744829795-source-1737135652229-target
+      source: '1738744829795'
+      sourceHandle: source
+      target: '1737135652229'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1737134108423'
+        sourceType: tool
+        targetType: variable-aggregator
+      id: 1738744836673-source-1737135652229-target
+      source: '1738744836673'
+      sourceHandle: source
+      target: '1737135652229'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: tool
+      id: 1736929247628-source-1739719735541-target
+      source: '1736929247628'
+      sourceHandle: source
+      target: '1739719735541'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1739719735541-source-1737567390480-target
+      source: '1739719735541'
+      sourceHandle: source
+      target: '1737567390480'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: '#Start'
+        type: start
+        variables:
+        - label: conversation_id
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: conversation_id
+        - label: current_request
+          max_length: 50000
+          options: []
+          required: true
+          type: paragraph
+          variable: current_request
+        - label: source_doc_id
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: source_doc_id
+      height: 141
+      id: '1736929247628'
+      position:
+        x: 30
+        y: 644
+      positionAbsolute:
+        x: 30
+        y: 644
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "You're an expert in SQL query generation.\r\n"
+        title: SQL Writer Sys Prompt
+        type: template-transform
+        variables: []
+      height: 53
+      id: '1737029930317'
+      position:
+        x: 942
+        y: 644
+      positionAbsolute:
+        x: 942
+        y: 644
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "I will give you the conversations between the user and assistant.\r\
+          \nI will give you the currenct request by the user.\r\nI will give you all\
+          \ the tables' schema information in the database.\r\n\r\nThe previous conversations\
+          \ are:\r\n{{ conversation_history }}\r\n\r\nThe current request by user:\r\
+          \n{{ current_request }}\r\n\r\nThe following are all the columns and their\
+          \ descriptions in each table described in json, with descriptions for tables\
+          \ and columns.:\r\n{{ table_schemas }}\r\n\r\nYour task is to read through\
+          \ all the above information, think carefully which columns are needed and\
+          \ then generate a piece of executable SQL query in order to get data from\
+          \ the above tables in the database in order to answer user's current query.\r\
+          \n\r\nNote: The response should only contain executable SQL code, without\
+          \ any additional text explanations. \r\nNote: Just reply the raw SQL text,\
+          \ not wrap it within the json dict or list. \r\nNote: SQL query must be\
+          \ executable, so it should not contain parameters.\r\nNote: Specify the\
+          \ columns needed in SELECT, do NOT use 'SELECT *'.\r\nNote: The SQL dialect\
+          \ is {{ sql_dialect }}.\r\nNote: When you are referring needed data from\
+          \ previous steps, do NOT skip any relevant information.\r\nNote: When the\
+          \ query relates to sorting, exclude null values at first.\r\n    \r\n  \
+          \  {{ additional_details }}\r\n\r\n    {{ few_shots }}\r\n    \r\n    Executable\
+          \ SQL code:"
+        title: Sql Writer User Prompt
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1736929247628'
+          - current_request
+          variable: current_request
+        - value_selector:
+          - '1737567390480'
+          - query_schema
+          variable: table_schemas
+        - value_selector:
+          - env
+          - dummy
+          variable: additional_details
+        - value_selector:
+          - env
+          - dummy
+          variable: few_shots
+        - value_selector:
+          - '1737567390480'
+          - dialect
+          variable: sql_dialect
+        - value_selector:
+          - '1737567390480'
+          - markdown_history
+          variable: conversation_history
+      height: 53
+      id: '1737030413470'
+      position:
+        x: 942
+        y: 738
+      positionAbsolute:
+        x: 942
+        y: 738
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            response_format: JSON
+            temperature: 0.7
+          mode: chat
+          name: qwen-plus-latest
+          provider: tongyi
+        prompt_template:
+        - id: bb9e497c-23d7-4413-88fb-90314405296e
+          role: system
+          text: '{{#1737029930317.output#}}'
+        - id: 70751a81-dd1b-4c4f-8692-5abb909a91ec
+          role: user
+          text: '{{#1737030413470.output#}}'
+        selected: false
+        title: '#SQL_Writer'
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1737030699405'
+      position:
+        x: 1246
+        y: 644
+      positionAbsolute:
+        x: 1246
+        y: 644
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: '#SQL_Runner'
+        tool_configurations: {}
+        tool_label: SQL Runner
+        tool_name: sql_runner
+        tool_parameters:
+          connection_string:
+            type: mixed
+            value: '{{#1736929247628.sql_connection_string#}}'
+          max_rows:
+            type: variable
+            value:
+            - env
+            - max_rows
+          sql:
+            type: mixed
+            value: '{{#1737030699405.text#}}'
+          sql_connection_string:
+            type: mixed
+            value: '{{#1737567390480.connection#}}'
+        type: tool
+      height: 53
+      id: '1737122259093'
+      position:
+        x: 1550
+        y: 644
+      positionAbsolute:
+        x: 1550
+        y: 644
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(res: list[dict]) -> dict:\n    return {\n        \"is_error\"\
+          : 1 if res[0]['is_error'] else 0,\n        \"error_message\": res[0]['error_message'],\n\
+          \        \"sql\": res[0]['sql'],\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          error_message:
+            children: null
+            type: string
+          is_error:
+            children: null
+            type: number
+          sql:
+            children: null
+            type: string
+        selected: false
+        title: Check Is Error
+        type: code
+        variables:
+        - value_selector:
+          - '1737122259093'
+          - json
+          variable: res
+      height: 53
+      id: '1737133452919'
+      position:
+        x: 1854
+        y: 644
+      positionAbsolute:
+        x: 1854
+        y: 644
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: '='
+            id: 88fdd746-bde5-42fb-b27d-2f7316cad86c
+            value: '1'
+            varType: number
+            variable_selector:
+            - '1737133452919'
+            - is_error
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: IF/ELSE
+        type: if-else
+      height: 125
+      id: '1737133612500'
+      position:
+        x: 2158
+        y: 644
+      positionAbsolute:
+        x: 2158
+        y: 644
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: Set Error Flag
+        tool_configurations: {}
+        tool_label: Redis Cache
+        tool_name: redis_cache
+        tool_parameters:
+          action:
+            type: mixed
+            value: set
+          dify_workflow_runid:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+          expire:
+            type: constant
+            value: 300
+          key:
+            type: mixed
+            value: is_error
+          redis_connection_string:
+            type: mixed
+            value: '{{#env.redis_connection_string#}}'
+          value:
+            type: mixed
+            value: '1'
+          workflow_runid:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+        type: tool
+      height: 53
+      id: '1737133722940'
+      position:
+        x: 2462
+        y: 644
+      positionAbsolute:
+        x: 2462
+        y: 644
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(max_retries: int) -> dict:\n    return {\n        \"loop\"\
+          : [i+1 for i in range(max_retries)],\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          loop:
+            children: null
+            type: array[number]
+        selected: false
+        title: Retries
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - max_retries
+          variable: max_retries
+      height: 53
+      id: '1737134068275'
+      position:
+        x: 2766
+        y: 644
+      positionAbsolute:
+        x: 2766
+        y: 644
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        error_handle_mode: terminated
+        height: 888
+        is_parallel: false
+        iterator_selector:
+        - '1737134068275'
+        - loop
+        output_selector:
+        - '1737135652229'
+        - output
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1737134108423start
+        title: Iteration
+        type: iteration
+        width: 3149
+      height: 888
+      id: '1737134108423'
+      position:
+        x: 3031.9445039473408
+        y: 1062.859185311621
+      positionAbsolute:
+        x: 3031.9445039473408
+        y: 1062.859185311621
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 3149
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1737134108423start
+      parentId: '1737134108423'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 3055.9445039473408
+        y: 1130.859185311621
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1737134108423'
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: Get Error Flag
+        tool_configurations: {}
+        tool_label: Redis Cache
+        tool_name: redis_cache
+        tool_parameters:
+          action:
+            type: mixed
+            value: get
+          dify_workflow_runid:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+          expire:
+            type: constant
+            value: 300
+          key:
+            type: mixed
+            value: is_error
+          redis_connection_string:
+            type: mixed
+            value: '{{#env.redis_connection_string#}}'
+          value:
+            type: mixed
+            value: '1'
+          workflow_runid:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+        type: tool
+      height: 53
+      id: '1737134286394'
+      parentId: '1737134108423'
+      position:
+        x: 85.61498510790761
+        y: 65
+      positionAbsolute:
+        x: 3117.5594890552484
+        y: 1127.859185311621
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 00a34598-2467-4c9c-8097-f529f3205eec
+            value: '1'
+            varType: string
+            variable_selector:
+            - '1737134286394'
+            - text
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        isInIteration: true
+        iteration_id: '1737134108423'
+        selected: false
+        title: If Still Error
+        type: if-else
+      height: 125
+      id: '1737134425627'
+      parentId: '1737134108423'
+      position:
+        x: 387.9989897817195
+        y: 65
+      positionAbsolute:
+        x: 3419.9434937290603
+        y: 1127.859185311621
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\ndef main() -> dict:\n    return {\n        \"result\": [{'do':'nothing'}],\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1737134108423'
+        outputs:
+          result:
+            children: null
+            type: array[object]
+        selected: false
+        title: Do Nothing
+        type: code
+        variables: []
+      height: 53
+      id: '1737134475180'
+      parentId: '1737134108423'
+      position:
+        x: 762.3281897173033
+        y: 365.67069588740674
+      positionAbsolute:
+        x: 3794.272693664644
+        y: 1428.5298811990278
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1737134108423'
+        selected: false
+        template: "You're an expert in SQL query generation and correction.\r\n"
+        title: Sql Rewrite Sys Prompt
+        type: template-transform
+        variables: []
+      height: 53
+      id: '1737134548486'
+      parentId: '1737134108423'
+      position:
+        x: 712.3372749766936
+        y: 79.64837454752774
+      positionAbsolute:
+        x: 3744.2817789240344
+        y: 1142.5075598591488
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1737134108423'
+        selected: false
+        template: "I will give you the current query by the user.\r\nI will give you\
+          \ all the tables' information in the database.\r\nI will also give you a\
+          \ piece of SQL Query code with error message, which is used to fetch the\
+          \ data from database in order to answer user's current request.\r\n\r\n\
+          The previous conversations are:\r\n{{ conversation_history }}\r\n\r\nThe\
+          \ current request by user:\r\n{{ current_request }}\r\n\r\nThe following\
+          \ are all the columns and their descriptions in each table described in\
+          \ json, with descriptions for tables and columns.:\r\n{{ table_schemas }}\r\
+          \n\r\n{{ additional_details }}\r\n\r\n{{ few_shots }}\r\n\r\nHere is the\
+          \ SQL query\r\n{{sql}}\r\n\r\nwith error message: \r\n{{error_message}}\r\
+          \n\r\nYour task is to read through all the above information and correct\
+          \ the above SQL query based on error message in order to make it executable.\r\
+          \n    \r\nNote: The response should only contain executable SQL code, without\
+          \ any additional text explanations.\r\nNote: SQL query must be executable,\
+          \ so it should not contain parameters.\r\nNote: Specify the columns needed\
+          \ in SELECT, do NOT use 'SELECT *'.\r\nNote: The SQL dialect is {{ sql_dialect\
+          \ }}.\r\nNote: When you are referring needed data from previous steps, do\
+          \ NOT skip any relevant information.\r\nNote: When the query relates to\
+          \ sorting, exclude null values at first.\r\n    \r\n\r\nCorrected executable\
+          \ SQL code:"
+        title: Sql Rewrite User Prompt
+        type: template-transform
+        variables:
+        - value_selector:
+          - env
+          - dummy
+          variable: conversation_history
+        - value_selector:
+          - '1736929247628'
+          - current_request
+          variable: current_request
+        - value_selector:
+          - '1737567390480'
+          - query_schema
+          variable: table_schemas
+        - value_selector:
+          - env
+          - dummy
+          variable: additional_details
+        - value_selector:
+          - env
+          - dummy
+          variable: few_shots
+        - value_selector:
+          - '1738744614565'
+          - text
+          variable: sql
+        - value_selector:
+          - '1738744621967'
+          - text
+          variable: error_message
+        - value_selector:
+          - '1737567390480'
+          - dialect
+          variable: sql_dialect
+      height: 53
+      id: '1737134564806'
+      parentId: '1737134108423'
+      position:
+        x: 708.8911799117018
+        y: 171.8671674482033
+      positionAbsolute:
+        x: 3740.8356838590425
+        y: 1234.7263527598243
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: true
+        iteration_id: '1737134108423'
+        model:
+          completion_params:
+            response_format: JSON
+            temperature: 0.7
+          mode: chat
+          name: qwen2.5-72b-instruct
+          provider: tongyi
+        prompt_template:
+        - id: 86de3b31-ca1c-4afc-b84d-8e12df0e00c9
+          role: system
+          text: '{{#1737134548486.output#}}'
+        - id: e94cf572-638e-4d32-bd14-ea4b1ca15189
+          role: user
+          text: '{{#1737134564806.output#}}'
+        selected: false
+        title: '#SQL_Rewriter'
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1737135323311'
+      parentId: '1737134108423'
+      position:
+        x: 1023.1126408638775
+        y: 110.8092604359448
+      positionAbsolute:
+        x: 4055.057144811218
+        y: 1173.6684457475658
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1737134108423'
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: '#SQL_Runner_Again'
+        tool_configurations: {}
+        tool_label: SQL Runner
+        tool_name: sql_runner
+        tool_parameters:
+          connection_string:
+            type: mixed
+            value: '{{#1736929247628.sql_connection_string#}}'
+          max_rows:
+            type: variable
+            value:
+            - env
+            - max_rows
+          sql:
+            type: mixed
+            value: '{{#1737135323311.text#}}'
+          sql_connection_string:
+            type: mixed
+            value: '{{#1737567390480.connection#}}'
+        type: tool
+      height: 53
+      id: '1737135385562'
+      parentId: '1737134108423'
+      position:
+        x: 1319.9697837210201
+        y: 132.23783186451612
+      positionAbsolute:
+        x: 4351.914287668361
+        y: 1195.0970171761373
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\ndef main(res: list[dict]) -> dict:\n    return {\n        \"is_error\"\
+          : 1 if res[0]['is_error'] else 0,\n        \"error_message\": res[0]['error_message'],\n\
+          \        \"sql\": res[0]['sql'],\n    }\n"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1737134108423'
+        outputs:
+          error_message:
+            children: null
+            type: string
+          is_error:
+            children: null
+            type: number
+          sql:
+            children: null
+            type: string
+        selected: false
+        title: Check Is Error Again
+        type: code
+        variables:
+        - value_selector:
+          - '1737135385562'
+          - json
+          variable: res
+      height: 53
+      id: '1737135439782'
+      parentId: '1737134108423'
+      position:
+        x: 1608.8055296235625
+        y: 132.39038398007744
+      positionAbsolute:
+        x: 4640.750033570903
+        y: 1195.2495692916987
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: '='
+            id: ff3f0f7a-2259-404a-8a99-38ba6f3d1b26
+            value: '0'
+            varType: number
+            variable_selector:
+            - '1737135439782'
+            - is_error
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        isInIteration: true
+        iteration_id: '1737134108423'
+        selected: false
+        title: If rewrite is ok
+        type: if-else
+      height: 125
+      id: '1737135558246'
+      parentId: '1737134108423'
+      position:
+        x: 1922.5097515326706
+        y: 133.3056966734465
+      positionAbsolute:
+        x: 4954.454255480012
+        y: 1196.1648819850675
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1737134108423'
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: Update error flag
+        tool_configurations: {}
+        tool_label: Redis Cache
+        tool_name: redis_cache
+        tool_parameters:
+          action:
+            type: mixed
+            value: set
+          dify_workflow_runid:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+          expire:
+            type: constant
+            value: 300
+          key:
+            type: mixed
+            value: is_error
+          redis_connection_string:
+            type: mixed
+            value: '{{#env.redis_connection_string#}}'
+          value:
+            type: mixed
+            value: '0'
+          workflow_runid:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+        type: tool
+      height: 53
+      id: '1737135585328'
+      parentId: '1737134108423'
+      position:
+        x: 2366.4810168174986
+        y: 142.6795424028669
+      positionAbsolute:
+        x: 5398.425520764839
+        y: 1205.538727714488
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1737134108423'
+        output_type: array[object]
+        selected: false
+        title: Retries Aggregator
+        type: variable-aggregator
+        variables:
+        - - '1737135385562'
+          - json
+        - - '1737134475180'
+          - result
+      height: 129
+      id: '1737135652229'
+      parentId: '1737134108423'
+      position:
+        x: 2693.9796863552115
+        y: 362.87764693821623
+      positionAbsolute:
+        x: 5725.924190302552
+        y: 1425.7368322498373
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1737618871625'
+          - timestamp
+          variable: timestamp
+        - value_selector:
+          - '1737618871625'
+          - role
+          variable: role
+        - value_selector:
+          - '1737618871625'
+          - is_error
+          variable: is_error
+        - value_selector:
+          - '1737618871625'
+          - error_message
+          variable: error_message
+        - value_selector:
+          - '1737618871625'
+          - jsons
+          variable: jsons
+        - value_selector:
+          - '1737618871625'
+          - thought_process
+          variable: thought_process
+        - value_selector:
+          - '1737618871625'
+          - row_count
+          variable: row_count
+        selected: false
+        title: '#End'
+        type: end
+      height: 245
+      id: '1737135856682'
+      position:
+        x: 6919.173987812602
+        y: 644
+      positionAbsolute:
+        x: 6919.173987812602
+        y: 644
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(schema: list[dict], source_name: str, conversation: list[dict]=[])\
+          \ -> dict:\n    connection = schema[0]['connection_string']\n    if connection.startswith('excel+pandas'):\n\
+          \        connection = 'pondsql://' + source_name\n    markdown_history =\
+          \ ''\n    conversation_data = {}\n    if len(conversation) > 0:\n      \
+          \  markdown_history = conversation[0].get('markdown_history', '')\n    \
+          \    conversation_data = conversation[0].get('conversation', {})\n    return\
+          \ {\n        \"dialect\": schema[0]['dialect'],\n        \"query_schema\"\
+          : schema[0]['query_schema'],\n        \"connection\": connection,\n    \
+          \    \"markdown_history\": markdown_history,\n        \"conversation\":\
+          \ conversation_data,\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          connection:
+            children: null
+            type: string
+          conversation:
+            children: null
+            type: object
+          dialect:
+            children: null
+            type: string
+          markdown_history:
+            children: null
+            type: string
+          query_schema:
+            children: null
+            type: array[object]
+        selected: false
+        title: Get Query Schema Result
+        type: code
+        variables:
+        - value_selector:
+          - '1739719735541'
+          - json
+          variable: schema
+        - value_selector:
+          - '1736929247628'
+          - source_doc_id
+          variable: source_name
+        - value_selector:
+          - '1738478662883'
+          - json
+          variable: conversation
+      height: 53
+      id: '1737567390480'
+      position:
+        x: 638
+        y: 644
+      positionAbsolute:
+        x: 638
+        y: 644
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\nfrom datetime import datetime\n\ndef main(group1: list[dict], group2:\
+          \ list[dict]) -> dict:\n    res = {\n        \"timestamp\": datetime.now().isoformat(timespec='milliseconds'),\n\
+          \        \"role\": \"sql-agent\",\n        \"is_error\": False,\n      \
+          \  \"error_message\": '',\n        \"jsons\": [],\n        \"thought_process\"\
+          : [],\n        \"row_count\": 0,\n    }\n    data = None\n    if group1\
+          \ and (not group2):\n        data = group1['output'][0]\n    elif group2:\n\
+          \        retry = next((item for item in group2['output'] if item.get(\"\
+          is_error\", None) == False), None)\n        if retry:\n            data\
+          \ = retry\n        else:\n            res['is_error'] = True\n         \
+          \   res['error_message'] = 'all_retries_failed'\n            for item in\
+          \ group2['output']:\n                res['error_message'] += '\\n'\n   \
+          \             res['error_message'] += item.get('error_message', '')\n  \
+          \  if data:\n        is_error = data.get('is_error', None)\n        error_message\
+          \ = data.get('error_message', None)\n        result = data.get('results',\
+          \ [])\n        sql = data.get('sql', '')\n        res[\"jsons\"] = result\n\
+          \        res[\"is_error\"] = is_error\n        res[\"thought_process\"]\
+          \ = [sql]\n        res[\"row_count\"] = len(result)\n    res['is_error']\
+          \ = str(res['is_error']).lower()\n    return res\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          error_message:
+            children: null
+            type: string
+          is_error:
+            children: null
+            type: string
+          jsons:
+            children: null
+            type: array[object]
+          role:
+            children: null
+            type: string
+          row_count:
+            children: null
+            type: number
+          thought_process:
+            children: null
+            type: array[string]
+          timestamp:
+            children: null
+            type: string
+        selected: false
+        title: Prepare Message Data
+        type: code
+        variables:
+        - value_selector:
+          - '1737826114253'
+          - Group1
+          variable: group1
+        - value_selector:
+          - '1737826114253'
+          - Group2
+          variable: group2
+      height: 53
+      id: '1737618871625'
+      position:
+        x: 6583
+        y: 644
+      positionAbsolute:
+        x: 6583
+        y: 644
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        advanced_settings:
+          group_enabled: true
+          groups:
+          - groupId: 792e1f7b-8f4c-447d-a695-bd8de2127a1d
+            group_name: Group1
+            output_type: array[object]
+            variables:
+            - - '1737122259093'
+              - json
+          - groupId: 7f188a7e-d0d7-4b85-b32d-32f80ae35bed
+            group_name: Group2
+            output_type: array[string]
+            variables:
+            - - '1737134108423'
+              - output
+        desc: ''
+        output_type: array[object]
+        selected: false
+        title: Result Aggregator
+        type: variable-aggregator
+        variables:
+        - - '1737122259093'
+          - json
+      height: 159
+      id: '1737826114253'
+      position:
+        x: 6279
+        y: 644
+      positionAbsolute:
+        x: 6279
+        y: 644
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: '#Get_Conversation'
+        tool_configurations: {}
+        tool_label: Get Conversation History
+        tool_name: get_conversation
+        tool_parameters:
+          conversation_id:
+            type: mixed
+            value: '{{#1736929247628.conversation_id#}}'
+          similarity_threshold:
+            type: variable
+            value:
+            - env
+            - similarity_threshold
+        type: tool
+      height: 53
+      id: '1738478662883'
+      position:
+        x: 334
+        y: 644
+      positionAbsolute:
+        x: 334
+        y: 644
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 213
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"SQL
+          Agent role name : sql-agent","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"----","type":"text","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Input
+          parameters:","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"-
+          conversation_id: 使用该id来追溯对话历史","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"-
+          current_request: 当前请求（可以来自用户或LLM）","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"-
+          source_name: 需要使用的数据源","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 290
+      height: 213
+      id: '1738560049944'
+      position:
+        x: 0.6972873727061142
+        y: 402.21951443332597
+      positionAbsolute:
+        x: 0.6972873727061142
+        y: 402.21951443332597
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 290
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 217
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"根据当前请求，取得相关表的schema","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"根据conversation_id取得对话历史","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"similarity_threshold
+          和 schema_token_threshold已经引用了环境变量（DIFY有BUG，可能未展示）","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Get
+          Conversation 还需要使用环境变量llm_context_size，还未实现","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: pink
+        title: ''
+        type: ''
+        width: 264
+      height: 217
+      id: '1738560168890'
+      position:
+        x: 322.1483087740529
+        y: 402.75409348641307
+      positionAbsolute:
+        x: 322.1483087740529
+        y: 402.75409348641307
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 264
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 211
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"组织","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"数据库连接字符串","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"数据库SQL方言","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"所有MARKDOWN的历史（假设Markdown包含所有需要的信息）","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"相关表结构信息","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"所有conversation历史记录信息（后续未使用）","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: pink
+        title: ''
+        type: ''
+        width: 266
+      height: 211
+      id: '1738560324025'
+      position:
+        x: 622.9256596271218
+        y: 406.2109971517827
+      positionAbsolute:
+        x: 622.9256596271218
+        y: 406.2109971517827
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 266
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 216
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"注意：","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"此处additional_details
+          和 few_shots需要实现，现在是使用的hardcode的空字符（环境变量的dummy值）","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"给定相关表结构，当前请求，SQL方言，Markdown的历史，生成LLM所需要的提示词","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: pink
+        title: ''
+        type: ''
+        width: 289
+      height: 216
+      id: '1738560580352'
+      position:
+        x: 921.4170486805356
+        y: 408.41908173832303
+      positionAbsolute:
+        x: 921.4170486805356
+        y: 408.41908173832303
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 289
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 208
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"调用LLM","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"此处可以更换LLM模型","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"注意：response
+          format 一定要用JSON","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 208
+      id: '1738560738014'
+      position:
+        x: 1250.1876934019683
+        y: 411.30562801668833
+      positionAbsolute:
+        x: 1250.1876934019683
+        y: 411.30562801668833
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 214
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"运行SQL","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"如果有错，is_error
+          和 error_message会表示出来，以便后续纠错","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 254
+      height: 214
+      id: '1738560802837'
+      position:
+        x: 1535.3591463210673
+        y: 410.973388508661
+      positionAbsolute:
+        x: 1535.3591463210673
+        y: 410.973388508661
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 254
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 230
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"组织：","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"is_error","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"error_message","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"sql","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"为了方便，is_error
+          此处转换成了 整型变量。0或1","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 230
+      id: '1738561116337'
+      position:
+        x: 1863.9187583200883
+        y: 410.01918604264745
+      positionAbsolute:
+        x: 1863.9187583200883
+        y: 410.01918604264745
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 212
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"判断是否有错","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"如果没有错误，则将数据直接传到最后的aggregator","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 299
+      height: 212
+      id: '1738561168336'
+      position:
+        x: 2144.9187583200874
+        y: 410.01918604264745
+      positionAbsolute:
+        x: 2144.9187583200874
+        y: 410.01918604264745
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 299
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 214
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"有错时，","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"设置redis的当前workflow
+          runid的is_error值为1","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 214
+      id: '1738561217110'
+      position:
+        x: 2469.918758320087
+        y: 410.01918604264745
+      positionAbsolute:
+        x: 2469.918758320087
+        y: 410.01918604264745
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 208
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"确定需要重试的次数","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"从环境变量取得(max_retries)","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 283
+      height: 208
+      id: '1738561259891'
+      position:
+        x: 2751.918758320086
+        y: 409.01918604264745
+      positionAbsolute:
+        x: 2751.918758320086
+        y: 409.01918604264745
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 283
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 222
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"重试的循环","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"1.
+          从redis取得当前错误标识","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"2.
+          判断是否还是有错","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"3.
+          如果无错误，则使用code block ，返回do nothing的字典（iteration没有break）","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 303
+      height: 222
+      id: '1738561307045'
+      position:
+        x: 3059.335779297088
+        y: 786.2660475844827
+      positionAbsolute:
+        x: 3059.335779297088
+        y: 786.2660475844827
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 303
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 247
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"4.
+          如果有错，编写纠错提示词。","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"注意，此处的additional_details
+          和 few_shots仍然是dummy值，需要实现","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: pink
+        title: ''
+        type: ''
+        width: 305
+      height: 247
+      id: '1738561326035'
+      position:
+        x: 3713.0312299534426
+        y: 780.8580554187589
+      positionAbsolute:
+        x: 3713.0312299534426
+        y: 780.8580554187589
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 305
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 243
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"调用LLM，纠错","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"可以采用与之前不同的模型","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"注意：只纠错第一次的错误，后续如果还错误，不会将后续的错误纳入。之后可以进一步实现。","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"注意：response
+          format 一定要用JSON","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: pink
+        title: ''
+        type: ''
+        width: 250
+      height: 243
+      id: '1738561505973'
+      position:
+        x: 4053.3327629155533
+        y: 786.2660475844827
+      positionAbsolute:
+        x: 4053.3327629155533
+        y: 786.2660475844827
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 250
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 240
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"再次执行SQL","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 269
+      height: 240
+      id: '1738561598375'
+      position:
+        x: 4336.872504441957
+        y: 790.2579895304706
+      positionAbsolute:
+        x: 4336.872504441957
+        y: 790.2579895304706
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 269
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 233
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"再次组织","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"is_error","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"error_message","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"sql","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"注意is_error
+          是整型变量","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 256
+      height: 233
+      id: '1738561690222'
+      position:
+        x: 4632.738944797291
+        y: 790.8734971812083
+      positionAbsolute:
+        x: 4632.738944797291
+        y: 790.8734971812083
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 256
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 235
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"判断是否有错。","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"如果没有错误，则更新redis的标志位","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 282
+      height: 235
+      id: '1738561759921'
+      position:
+        x: 4933.73894479729
+        y: 789.8734971812083
+      positionAbsolute:
+        x: 4933.73894479729
+        y: 789.8734971812083
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 282
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 222
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"无论再次结果是否错误，或者已经无错，都纳入retries
+          aggregator","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"并作为循环结果","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 263
+      height: 222
+      id: '1738561905193'
+      position:
+        x: 5599.738944797289
+        y: 802.8734971812083
+      positionAbsolute:
+        x: 5599.738944797289
+        y: 802.8734971812083
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 263
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 199
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"合并第一次结果和重试结果","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 313
+      height: 199
+      id: '1738562093367'
+      position:
+        x: 6244.037855305148
+        y: 390.6379419768673
+      positionAbsolute:
+        x: 6244.037855305148
+        y: 390.6379419768673
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 313
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 202
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"整理合并多次执行的结果","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 312
+      height: 202
+      id: '1738562121170'
+      position:
+        x: 6588.647361804256
+        y: 390.6379419768673
+      positionAbsolute:
+        x: 6588.647361804256
+        y: 390.6379419768673
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 312
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 208
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"返回：","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"执行结束时间
+          str","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"当前角色
+          sql-agent , str","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"is_error
+          是否错误 （可能多次尝试仍然错误）注意是str，‘true’ 或者 ''false''","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"error_message
+          (错误信息)  str","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"jsons
+          结果数据，注意是 list[dict]","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"thought_process
+          思考过程，即SQL, 注意是 list[str]","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 477
+      height: 208
+      id: '1738562141968'
+      position:
+        x: 6927.513376528381
+        y: 386.04314855687926
+      positionAbsolute:
+        x: 6927.513376528381
+        y: 386.04314855687926
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 477
+    - data:
+        author: hong.zheng
+        desc: ''
+        height: 354
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"SQL
+          Agent","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"2025-02-03:
+          首次完成，并添加了注释","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: yellow
+        title: ''
+        type: ''
+        width: 885
+      height: 354
+      id: '1738562324313'
+      position:
+        x: 18.072900548925475
+        y: -121.00808546043655
+      positionAbsolute:
+        x: 18.072900548925475
+        y: -121.00808546043655
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 885
+    - data:
+        desc: ''
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: Set Error SQL
+        tool_configurations: {}
+        tool_label: Redis Cache
+        tool_name: redis_cache
+        tool_parameters:
+          action:
+            type: mixed
+            value: set
+          dify_workflow_runid:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+          expire:
+            type: constant
+            value: 300
+          key:
+            type: mixed
+            value: error_sql
+          value:
+            type: mixed
+            value: '{{#1737133452919.sql#}}'
+        type: tool
+      height: 53
+      id: '1738744441027'
+      position:
+        x: 2462
+        y: 780.8580554187589
+      positionAbsolute:
+        x: 2462
+        y: 780.8580554187589
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: Set Error Message
+        tool_configurations: {}
+        tool_label: Redis Cache
+        tool_name: redis_cache
+        tool_parameters:
+          action:
+            type: mixed
+            value: set
+          dify_workflow_runid:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+          expire:
+            type: constant
+            value: 300
+          key:
+            type: mixed
+            value: error_message
+          value:
+            type: mixed
+            value: '{{#1737133452919.error_message#}}'
+        type: tool
+      height: 53
+      id: '1738744463789'
+      position:
+        x: 2455.937133733958
+        y: 931.7609196588032
+      positionAbsolute:
+        x: 2455.937133733958
+        y: 931.7609196588032
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1737134108423'
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: Get Error Sql
+        tool_configurations: {}
+        tool_label: Redis Cache
+        tool_name: redis_cache
+        tool_parameters:
+          action:
+            type: mixed
+            value: get
+          dify_workflow_runid:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+          expire:
+            type: constant
+            value: 300
+          key:
+            type: mixed
+            value: error_sql
+          value:
+            type: mixed
+            value: ' '
+        type: tool
+      height: 53
+      id: '1738744614565'
+      parentId: '1737134108423'
+      position:
+        x: 85.61498510790761
+        y: 158
+      positionAbsolute:
+        x: 3117.5594890552484
+        y: 1220.859185311621
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1737134108423'
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: Get Error Message
+        tool_configurations: {}
+        tool_label: Redis Cache
+        tool_name: redis_cache
+        tool_parameters:
+          action:
+            type: mixed
+            value: get
+          dify_workflow_runid:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+          expire:
+            type: constant
+            value: 300
+          key:
+            type: mixed
+            value: error_message
+          value:
+            type: mixed
+            value: ' '
+        type: tool
+      height: 53
+      id: '1738744621967'
+      parentId: '1737134108423'
+      position:
+        x: 85.61498510790761
+        y: 251
+      positionAbsolute:
+        x: 3117.5594890552484
+        y: 1313.859185311621
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1737134108423'
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: Set Error sql
+        tool_configurations: {}
+        tool_label: Redis Cache
+        tool_name: redis_cache
+        tool_parameters:
+          action:
+            type: mixed
+            value: set
+          dify_workflow_runid:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+          expire:
+            type: constant
+            value: 300
+          key:
+            type: mixed
+            value: error_sql
+          value:
+            type: mixed
+            value: '{{#1737135439782.sql#}}'
+        type: tool
+      height: 53
+      id: '1738744829795'
+      parentId: '1737134108423'
+      position:
+        x: 2263.5161814662574
+        y: 293.91014599608366
+      positionAbsolute:
+        x: 5295.460685413598
+        y: 1356.7693313077048
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1737134108423'
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: Set Error Message
+        tool_configurations: {}
+        tool_label: Redis Cache
+        tool_name: redis_cache
+        tool_parameters:
+          action:
+            type: mixed
+            value: set
+          dify_workflow_runid:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+          expire:
+            type: constant
+            value: 300
+          key:
+            type: mixed
+            value: error_message
+          value:
+            type: mixed
+            value: '{{#1737135439782.error_message#}}'
+        type: tool
+      height: 53
+      id: '1738744836673'
+      parentId: '1737134108423'
+      position:
+        x: 2265.031898032768
+        y: 420.25591045931264
+      positionAbsolute:
+        x: 5296.976401980109
+        y: 1483.1150957709337
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        provider_id: newbakery
+        provider_name: newbakery
+        provider_type: builtin
+        selected: false
+        title: '#Get_Query_Schema'
+        tool_configurations: {}
+        tool_label: Get Query Schema
+        tool_name: get_query_schema
+        tool_parameters:
+          schema_tokens_threshold:
+            type: variable
+            value:
+            - env
+            - schema_token_threshold
+          similarity_threshold:
+            type: variable
+            value:
+            - env
+            - similarity_threshold
+          source_doc_id:
+            type: mixed
+            value: '{{#1736929247628.source_doc_id#}}'
+          user_query:
+            type: mixed
+            value: '{{#1736929247628.current_request#}}'
+        type: tool
+      height: 53
+      id: '1739719735541'
+      position:
+        x: 334
+        y: 738
+      positionAbsolute:
+        x: 334
+        y: 738
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -240.59036227710112
+      y: 38.79852300921942
+      zoom: 0.46946544891899805
